@@ -1,0 +1,88 @@
+# Requirements for Windows with CUDA 13.0
+# Updated for Windows compatibility and Python 3.14 support
+# IMPORTANT: CUDA 13.0 requires NVIDIA driver version 600+ (check with: nvidia-smi)
+# If your driver only supports CUDA 12.8 or lower, you'll need to update your NVIDIA driver
+# Python 3.14 only supports PyTorch 2.9.0+ which requires CUDA 13.0
+# Installation instructions:
+# 1. Create virtual environment:
+#    python -m venv train_env ( it uses default python version in the system)
+# 2. Activate the virtual environment:
+#    train_env\Scripts\Activate.ps1
+# 3. Upgrade pip:
+#    python -m pip install --upgrade pip
+# 4. Install PyTorch, torchvision, torchaudio with CUDA 13.0 support (Python 3.14 compatible):
+#    pip install torch>=2.9.0 torchvision>=0.24.0 torchaudio>=2.9.0 --index-url https://download.pytorch.org/whl/cu130
+#    NOTE: If GPU is not detected, update NVIDIA driver to version 600+ for CUDA 13.0 support
+# 5. Install the rest:
+#    pip install -r requirements.txt
+
+# Core dependencies
+packaging>=24.0
+addict==2.4.0
+# editdistance==0.6.2  # Already installed version 0.8.1clear
+
+# Array/tensor/numerics
+# numpy>=1.21.0,<2.0.0  # Commented out: PyTorch 2.6.0+ uses numpy 2.x
+
+# Data processing
+jsonlines==4.0.0
+openpyxl==3.1.2
+Pillow==10.1.0
+matplotlib==3.7.4
+seaborn==0.13.0
+sacrebleu==2.3.2
+shortuuid==1.0.11
+more_itertools==10.1.0
+einops>=0.8.0
+markdown2==2.4.10
+nltk==3.8.1
+opencv_python_headless==4.5.5.64
+
+# Machine learning
+fairscale==0.4.0
+timm==0.9.10
+sentencepiece==0.2.0
+transformers==4.44.2
+accelerate==1.2.1
+
+# PyTorch with CUDA support (install separately, see above)
+# torch>=2.9.0
+# torchvision>=0.24.0
+# torchaudio>=2.9.0
+
+# Progress/UI
+uvicorn==0.24.0.post1
+tqdm==4.66.1
+gradio==4.44.1
+gradio_client
+
+# Model download (external wheel)
+http://thunlp.oss-cn-qingdao.aliyuncs.com/multi_modal/never_delete/modelscope_studio-0.4.0.9-py3-none-any.whl
+
+# Video/audio processing
+decord
+vector-quantize-pytorch==1.18.5
+vocos==0.1.0
+soundfile==0.12.1
+librosa==0.9.0
+moviepy
+
+# Web and API
+aiofiles==23.2.1
+onnxruntime==1.20.1
+fastapi
+pydantic==2.10.6
+
+# Document processing
+python-pptx==1.0.2
+PyPDF2==3.0.0
+
+# Windows-specific dependencies
+comtypes==1.4.9
+pywin32==306
+colorama>=0.4.6
+psutil>=5.9.0
+
+# Legacy pathlib (for older Python versions)
+pathlib==1.0.1
+

@@ -1,0 +1,159 @@
+RAG vs RLM: Two Practical Ways to Make LLMs Work with Big Documents  
+(What I Found by Testing Both Locally)
+
+Large Language Models are impressive—until you give them what engineers and operators deal with every day:
+- long maintenance logs
+- SOPs and manuals
+- incident writeups
+- standards and procedures
+- months/years of notes and reports
+
+Even if a model supports long context windows, performance can degrade when the input gets huge and dense. So the real question becomes:
+- How do we let an LLM “work with” large documents without stuffing the whole thing into the prompt?
+
+I ran a practical experiment comparing two approaches:
+- RAG (Retrieval-Augmented Generation)
+- RLM (Recursive Language Model pattern)
+
+This article explains what they are, how I tested them, and the rule-of-thumb I walked away with.
+
+---
+
+## What RAG Is (Plain-English)
+RAG = “retrieve the best chunks, then answer.” Treat documents as a searchable knowledge base:
+- Split documents into chunks (fixed size, with overlap)
+- Convert chunks into embeddings (vector representations)
+- For each question, retrieve the top-K most relevant chunks
+- Provide only those chunks to the LLM to generate an answer
+
+**Why RAG is powerful**
+- Strong when the answer is localized (a few paragraphs contain what you need)
+- Great when you have many documents—you can search across the library without sending everything to the model
+
+**The tradeoff**
+- Can miss details when the question needs global coverage, e.g.:
+  - “What are the recurring problems across the entire log?”
+  - “List every occurrence and group them by category.”
+  - “Count how many times X happened and what actions were taken.”
+- Because it usually passes only Top-K chunks. If it’s not in those K, it’s invisible.
+
+---
+
+## What RLM Is (Plain-English)
+RLM = “treat the document like a file; let the AI read it programmatically.” It doesn’t replace transformers; it changes the workflow:
+- Big document stays outside the LLM (in Python, as data)
+- Model uses tools/code to:
+  - search
+  - extract spans
+  - chunk dynamically
+  - call itself on smaller parts
+  - combine results into a final answer
+- Instead of “here’s the whole document, good luck,” it becomes “here’s a data source; write an algorithm to inspect it and build the answer.”
+
+**Why RLM is powerful**
+- Strong when the question is dense and requires coverage:
+  - recurring patterns
+  - audits and enumerations
+  - comparing many sections
+  - completeness-critical tasks
+
+**The tradeoff**
+- Many LLM calls (subcalls + reduction), so:
+  - slower
+  - more expensive
+  - more variable latency
+
+---
+
+## My Experiment Setup (Local + Open-Source)
+I built two small Python pipelines and ran everything locally using Ollama models.
+
+**RAG pipeline**
+- Chunked the document with fixed size + overlap
+- Embedded all chunks using a local embedding model
+- Retrieved Top-K chunks per question
+- Fed those chunks to the LLM for the final answer
+
+**RLM-style pipeline**
+- Asked the LLM to propose a search plan (keywords)
+- Used Python to search and extract spans from the full document
+- Ran sub-calls where the LLM summarized each span
+- Ran a final reduce call to combine results and produce a structured answer with evidence references
+
+Same document. Same question. Different “thinking architecture.”
+
+---
+
+## What I Found (The Real Difference)
+**RAG wins when the question is “needle-in-a-haystack.”**  
+Examples:
+- “What happened during the surge control valve issue?”
+- “What did the log say about lube oil temperature alarms?”
+- “Summarize the root cause note.”
+- RAG is fast, cheap, and excellent at semantic lookup.
+
+**RLM wins when the question is “touch-everything / audit.”**  
+Examples:
+- “What are the recurring problems across the whole document?”
+- “List all alarms and group by cause + action.”
+- “Count how often each failure mode appears.”
+- RLM is better when missing distributed evidence is unacceptable.
+
+**Key observation**
+- RAG is selective (Top-K retrieval) → efficient, but can have blind spots.
+- RLM is systematic (programmatic scanning + recursion) → more complete, but heavier.
+
+---
+
+## Rule of Thumb
+If your question starts with… use **RAG**:
+- “What is…”
+- “Explain…”
+- “Where does it say…”
+- “Summarize…”
+
+If your question starts with… use **RLM**:
+- “List all…”
+- “How many…”
+- “Across the whole document…”
+- “Recurring patterns…”
+- “Compare and group…”
+
+---
+
+## Best in Practice: Hybrid (RAG → RLM)
+Most practical architecture:
+- RAG to identify relevant documents/chunks across a large corpus
+- RLM to do completeness-critical enumeration inside those candidates
+
+This avoids:
+- scanning millions of tokens unnecessarily (RLM downside)
+- missing distributed evidence (RAG downside)
+
+---
+
+## Why This Matters in Engineering/Operations
+In OT / maintenance / process operations, many tasks are not just “lookup.” They’re closer to:
+- “What keeps happening?”
+- “Where are the weak signals?”
+- “Are we repeating the same failure modes?”
+- “What evidence supports the recommended actions?”
+
+Those are RLM-shaped questions.  
+But day-to-day knowledge access (“what does the SOP say?”) is still RAG-shaped.  
+Goal: match the method to the question type.
+
+---
+
+## Closing
+My takeaway:
+- RAG scales knowledge access
+- RLM scales completeness and systematic analysis
+- Hybrid scales real-world reliability
+
+If you’re working on document-heavy systems (maintenance logs, standards, SOPs, incident reports), test both on your data—you’ll quickly see where each approach shines.
+
+If you want, I can also:
+- convert this into a shorter Medium version with more storytelling
+- add a “worked example” section (sample maintenance log question + outputs)
+- tailor it to OT/industrial historian replacement / alarm rationalization use cases

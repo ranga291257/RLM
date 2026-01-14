@@ -1,0 +1,1806 @@
+PLANT MAINTENANCE LOG — C-201 (SYNTHETIC)
+
+[2025-01-03] Operator report: suction pressure oscillations during startup; stabilized at normal load.
+
+[2025-01-03] Operator note: minor seal oil header fluctuation; stabilized after 5 min.
+
+[2025-01-03] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+Action: oil sample taken; sent to lab.
+
+[2025-01-06] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (96 C).
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2025-01-06] Maintenance: checked vibration probes; calibration within tolerance.
+
+[2025-01-09] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (99 C).
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-01-11] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: bearing temperature spikes BEAR_TEMP_3 (99 C).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-01-12] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: recommend bearing inspection and alignment verification
+Action: replaced inlet strainer; DP normalized.
+
+[2025-01-14] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (86 C).
+Action: replaced inlet strainer; DP normalized.
+
+[2025-01-17] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: inlet strainer partially blocked
+Recommendation: verify alignment at next shutdown.
+
+[2025-01-20] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (102 C).
+Action: replaced inlet strainer; DP normalized.
+
+[2025-01-20] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: oil sample metal particles elevated
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-01-23] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: VIB RMS trending up
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-01-26] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Recommendation: verify alignment at next shutdown.
+
+[2025-01-29] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (99 C).
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-01-31] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: oil sample metal particles elevated
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2025-02-03] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Recommendation: verify alignment at next shutdown.
+
+[2025-02-03] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2025-02-06] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (34 kPa).
+Recommendation: verify alignment at next shutdown.
+
+[2025-02-08] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Action: reduced load to 70%.
+
+[2025-02-09] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+
+[2025-02-12] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: suction filter DP increased (26 kPa).
+Action: oil sample taken; sent to lab.
+
+[2025-02-14] Operator report: suction pressure oscillations during startup; stabilized at normal load.
+
+[2025-02-16] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Action: oil sample taken; sent to lab.
+
+[2025-02-17] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (91 C).
+Action: replaced inlet strainer; DP normalized.
+
+[2025-02-17] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: bearing temperature spikes BEAR_TEMP_3 (92 C).
+Action: reduced load to 70%.
+
+[2025-02-18] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2025-02-20] Maintenance: checked vibration probes; calibration within tolerance.
+
+[2025-02-20] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: oil sample metal particles elevated
+Action: oil sample taken; sent to lab.
+
+[2025-02-23] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (37 kPa).
+Action: replaced inlet strainer; DP normalized.
+
+[2025-02-23] Operator report: suction pressure oscillations during startup; stabilized at normal load.
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-02-23] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: bearing temperature spikes BEAR_TEMP_3 (98 C).
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-02-23] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: temperature normalized after cleaning cooler fins (94 C).
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2025-02-25] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: suction filter DP increased (23 kPa).
+Recommendation: verify alignment at next shutdown.
+
+[2025-02-28] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-02-28] Alarm event: 'VFD_COMM_WARN' transient; cleared automatically.
+
+[2025-03-01] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: temperature normalized after cleaning cooler fins (94 C).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-03-01] Alarm event: 'VFD_COMM_WARN' transient; cleared automatically.
+
+[2025-03-01] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-03-02] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: temperature normalized after cleaning cooler fins (99 C).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-03-04] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: bearing temperature spikes BEAR_TEMP_3 (105 C).
+Action: oil sample taken; sent to lab.
+
+[2025-03-05] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: inlet strainer partially blocked
+Action: reduced load to 70%.
+
+[2025-03-05] Operator report: suction pressure oscillations during startup; stabilized at normal load.
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2025-03-07] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (4.9 bar).
+Action: checked lube oil pressure OK.
+
+[2025-03-08] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Recommendation: verify alignment at next shutdown.
+
+[2025-03-08] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Action: checked lube oil pressure OK.
+
+[2025-03-08] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+
+[2025-03-09] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Action: oil sample taken; sent to lab.
+
+[2025-03-12] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (89 C).
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-03-12] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (25 kPa).
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2025-03-15] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-03-16] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (104 C).
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-03-19] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+
+[2025-03-20] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-03-21] Alarm event: 'VFD_COMM_WARN' transient; cleared automatically.
+Action: oil sample taken; sent to lab.
+
+[2025-03-22] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (5.3 bar).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-03-25] Maintenance: checked vibration probes; calibration within tolerance.
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-03-25] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+
+[2025-03-26] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (52 kPa).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-03-26] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: recommend bearing inspection and alignment verification
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-03-29] Operator note: minor seal oil header fluctuation; stabilized after 5 min.
+
+[2025-03-29] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Action: checked lube oil pressure OK.
+
+[2025-04-01] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-04-02] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (43 kPa).
+Recommendation: verify alignment at next shutdown.
+
+[2025-04-03] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Action: replaced inlet strainer; DP normalized.
+
+[2025-04-06] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Recommendation: verify alignment at next shutdown.
+
+[2025-04-08] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: checked lube oil pressure OK.
+
+[2025-04-09] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: VIB RMS trending up
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-04-10] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: replaced inlet strainer; DP normalized.
+
+[2025-04-10] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: suction filter DP increased (65 kPa).
+Action: replaced inlet strainer; DP normalized.
+
+[2025-04-11] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: oil sample metal particles elevated
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-04-14] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-04-14] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: inlet strainer partially blocked
+Action: reduced load to 70%.
+
+[2025-04-17] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: oil sample metal particles elevated
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-04-17] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (87 C).
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2025-04-17] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-04-20] Alarm event: 'VFD_COMM_WARN' transient; cleared automatically.
+
+[2025-04-23] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Action: reduced load to 70%.
+
+[2025-04-24] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Action: reduced load to 70%.
+
+[2025-04-24] Operator note: minor seal oil header fluctuation; stabilized after 5 min.
+
+[2025-04-25] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Action: reduced load to 70%.
+
+[2025-04-27] Operator report: suction pressure oscillations during startup; stabilized at normal load.
+
+[2025-04-29] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (103 C).
+Action: checked lube oil pressure OK.
+
+[2025-04-30] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (108 C).
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2025-05-01] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: recommend bearing inspection and alignment verification
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-05-03] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Action: reduced load to 70%.
+
+[2025-05-03] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: recommend bearing inspection and alignment verification
+Action: replaced inlet strainer; DP normalized.
+
+[2025-05-06] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: suction filter DP increased (49 kPa).
+Action: oil sample taken; sent to lab.
+
+[2025-05-09] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (32 kPa).
+Action: replaced inlet strainer; DP normalized.
+
+[2025-05-10] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-05-10] Operator note: minor seal oil header fluctuation; stabilized after 5 min.
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2025-05-13] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (106 C).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-05-15] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Recommendation: verify alignment at next shutdown.
+
+[2025-05-16] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: suction filter DP increased (30 kPa).
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-05-18] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-05-19] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: suction filter DP increased (40 kPa).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-05-20] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: VIB RMS trending up
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2025-05-20] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: bearing temperature spikes BEAR_TEMP_3 (95 C).
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2025-05-22] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (109 C).
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-05-25] Operator report: suction pressure oscillations during startup; stabilized at normal load.
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2025-05-26] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: recommend bearing inspection and alignment verification
+Action: oil sample taken; sent to lab.
+
+[2025-05-27] Maintenance: checked vibration probes; calibration within tolerance.
+
+[2025-05-27] Maintenance: checked vibration probes; calibration within tolerance.
+
+[2025-05-28] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: VIB RMS trending up
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-05-28] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (20 kPa).
+Action: reduced load to 70%.
+
+[2025-05-29] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Action: checked lube oil pressure OK.
+
+[2025-05-29] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (103 C).
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2025-05-29] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+
+[2025-05-30] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: inlet strainer partially blocked
+Action: oil sample taken; sent to lab.
+
+[2025-05-30] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2025-05-31] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2025-06-02] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (97 C).
+Recommendation: verify alignment at next shutdown.
+
+[2025-06-04] Operator note: minor seal oil header fluctuation; stabilized after 5 min.
+
+[2025-06-07] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: oil sample metal particles elevated
+Recommendation: verify alignment at next shutdown.
+
+[2025-06-10] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (90 C).
+Action: checked lube oil pressure OK.
+
+[2025-06-13] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: suction filter DP increased (57 kPa).
+Recommendation: verify alignment at next shutdown.
+
+[2025-06-15] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (100 C).
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-06-17] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+
+[2025-06-19] Alarm event: 'VFD_COMM_WARN' transient; cleared automatically.
+Recommendation: verify alignment at next shutdown.
+
+[2025-06-22] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Recommendation: verify alignment at next shutdown.
+
+[2025-06-25] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-06-28] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-06-30] Operator note: minor seal oil header fluctuation; stabilized after 5 min.
+
+[2025-07-01] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (5.1 bar).
+Action: oil sample taken; sent to lab.
+
+[2025-07-04] Maintenance: checked vibration probes; calibration within tolerance.
+Action: oil sample taken; sent to lab.
+
+[2025-07-06] Alarm event: 'VFD_COMM_WARN' transient; cleared automatically.
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2025-07-07] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (5.2 bar).
+Action: replaced inlet strainer; DP normalized.
+
+[2025-07-09] Operator report: suction pressure oscillations during startup; stabilized at normal load.
+
+[2025-07-12] Maintenance: checked vibration probes; calibration within tolerance.
+
+[2025-07-12] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: inlet strainer partially blocked
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2025-07-13] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (4.8 bar).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-07-14] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: inlet strainer partially blocked
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2025-07-16] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (5.3 bar).
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2025-07-19] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: suction filter DP increased (26 kPa).
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-07-19] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (28 kPa).
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-07-22] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: bearing temperature spikes BEAR_TEMP_3 (91 C).
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-07-24] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-07-26] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+
+[2025-07-29] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: bearing temperature spikes BEAR_TEMP_3 (94 C).
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-07-29] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: oil sample metal particles elevated
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-07-30] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: oil sample taken; sent to lab.
+
+[2025-08-02] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-08-02] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (41 kPa).
+Action: checked lube oil pressure OK.
+
+[2025-08-05] Maintenance: checked vibration probes; calibration within tolerance.
+
+[2025-08-08] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: VIB RMS trending up
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-08-09] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (103 C).
+Recommendation: verify alignment at next shutdown.
+
+[2025-08-09] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: VIB RMS trending up
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-08-10] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (103 C).
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-08-12] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (54 kPa).
+Action: checked lube oil pressure OK.
+
+[2025-08-12] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: bearing temperature spikes BEAR_TEMP_3 (95 C).
+Action: replaced inlet strainer; DP normalized.
+
+[2025-08-12] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (5.0 bar).
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-08-13] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: temperature normalized after cleaning cooler fins (91 C).
+Action: oil sample taken; sent to lab.
+
+[2025-08-15] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: oil sample taken; sent to lab.
+
+[2025-08-15] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: inlet strainer partially blocked
+Action: replaced inlet strainer; DP normalized.
+
+[2025-08-18] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Action: oil sample taken; sent to lab.
+
+[2025-08-20] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (105 C).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-08-20] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: replaced inlet strainer; DP normalized.
+
+[2025-08-21] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (4.9 bar).
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2025-08-24] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: oil sample taken; sent to lab.
+
+[2025-08-24] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+
+[2025-08-24] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: bearing temperature spikes BEAR_TEMP_3 (95 C).
+Action: reduced load to 70%.
+
+[2025-08-25] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Action: checked lube oil pressure OK.
+
+[2025-08-25] Alarm event: 'VFD_COMM_WARN' transient; cleared automatically.
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-08-28] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: inlet strainer partially blocked
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-08-31] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: VIB RMS trending up
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2025-08-31] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (109 C).
+Action: replaced inlet strainer; DP normalized.
+
+[2025-09-03] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (4.9 bar).
+Recommendation: verify alignment at next shutdown.
+
+[2025-09-04] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: suction filter DP increased (33 kPa).
+Recommendation: verify alignment at next shutdown.
+
+[2025-09-04] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: temperature normalized after cleaning cooler fins (104 C).
+Action: reduced load to 70%.
+
+[2025-09-07] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: VIB RMS trending up
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2025-09-08] Maintenance: checked vibration probes; calibration within tolerance.
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2025-09-10] Maintenance: checked vibration probes; calibration within tolerance.
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-09-12] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: recommend bearing inspection and alignment verification
+Action: checked lube oil pressure OK.
+
+[2025-09-12] Operator note: minor seal oil header fluctuation; stabilized after 5 min.
+
+[2025-09-15] Operator report: suction pressure oscillations during startup; stabilized at normal load.
+
+[2025-09-18] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+
+[2025-09-19] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-09-20] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (5.1 bar).
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2025-09-20] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: suction filter DP increased (30 kPa).
+Action: checked lube oil pressure OK.
+
+[2025-09-20] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: oil sample metal particles elevated
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-09-23] Operator note: minor seal oil header fluctuation; stabilized after 5 min.
+Action: checked lube oil pressure OK.
+
+[2025-09-24] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (64 kPa).
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-09-25] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (60 kPa).
+Action: replaced inlet strainer; DP normalized.
+
+[2025-09-25] Alarm event: 'VFD_COMM_WARN' transient; cleared automatically.
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2025-09-27] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Recommendation: verify alignment at next shutdown.
+
+[2025-09-28] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (92 C).
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2025-09-29] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: inlet strainer partially blocked
+Action: replaced inlet strainer; DP normalized.
+
+[2025-09-30] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (97 C).
+Action: reduced load to 70%.
+
+[2025-09-30] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-09-30] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+Action: replaced inlet strainer; DP normalized.
+
+[2025-10-01] Alarm event: 'VFD_COMM_WARN' transient; cleared automatically.
+
+[2025-10-02] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Action: reduced load to 70%.
+
+[2025-10-02] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: oil sample metal particles elevated
+Action: replaced inlet strainer; DP normalized.
+
+[2025-10-02] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (90 C).
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2025-10-02] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (105 C).
+Action: oil sample taken; sent to lab.
+
+[2025-10-04] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Action: replaced inlet strainer; DP normalized.
+
+[2025-10-04] Maintenance: checked vibration probes; calibration within tolerance.
+
+[2025-10-07] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (44 kPa).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-10-07] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (31 kPa).
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2025-10-09] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2025-10-11] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Action: replaced inlet strainer; DP normalized.
+
+[2025-10-14] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+
+[2025-10-17] Operator report: suction pressure oscillations during startup; stabilized at normal load.
+Action: checked lube oil pressure OK.
+
+[2025-10-20] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (5.4 bar).
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-10-20] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: temperature normalized after cleaning cooler fins (105 C).
+Action: oil sample taken; sent to lab.
+
+[2025-10-20] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-10-21] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-10-22] Operator note: minor seal oil header fluctuation; stabilized after 5 min.
+
+[2025-10-23] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-10-23] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: suction filter DP increased (60 kPa).
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2025-10-24] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: temperature normalized after cleaning cooler fins (95 C).
+Action: replaced inlet strainer; DP normalized.
+
+[2025-10-27] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (95 C).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-10-28] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: VIB RMS trending up
+Action: replaced inlet strainer; DP normalized.
+
+[2025-10-29] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: recommend bearing inspection and alignment verification
+Action: reduced load to 70%.
+
+[2025-10-31] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: oil sample metal particles elevated
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-11-02] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Action: replaced inlet strainer; DP normalized.
+
+[2025-11-05] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (5.2 bar).
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-11-05] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: inlet strainer partially blocked
+Action: replaced inlet strainer; DP normalized.
+
+[2025-11-08] Operator report: suction pressure oscillations during startup; stabilized at normal load.
+
+[2025-11-11] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: VIB RMS trending up
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-11-14] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (42 kPa).
+Action: reduced load to 70%.
+
+[2025-11-14] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (93 C).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-11-14] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: oil sample metal particles elevated
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-11-14] Maintenance: checked vibration probes; calibration within tolerance.
+
+[2025-11-14] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: inlet strainer partially blocked
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-11-15] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2025-11-16] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: oil sample metal particles elevated
+Recommendation: verify alignment at next shutdown.
+
+[2025-11-17] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: suction filter DP increased (46 kPa).
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2025-11-18] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: VIB RMS trending up
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-11-21] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-11-24] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-11-24] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (5.2 bar).
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2025-11-24] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: recommend bearing inspection and alignment verification
+Action: oil sample taken; sent to lab.
+
+[2025-11-26] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-11-28] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Action: replaced inlet strainer; DP normalized.
+
+[2025-11-29] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-12-01] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: recommend bearing inspection and alignment verification
+Action: reset instrument air regulator to 6.2 bar.
+
+[2025-12-01] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2025-12-04] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-12-07] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: VIB RMS trending up
+Action: reduced load to 70%.
+
+[2025-12-07] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-12-09] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (32 kPa).
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2025-12-10] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: suction filter DP increased (24 kPa).
+Action: replaced inlet strainer; DP normalized.
+
+[2025-12-11] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (89 C).
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2025-12-14] Operator note: minor seal oil header fluctuation; stabilized after 5 min.
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-12-16] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: oil sample metal particles elevated
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2025-12-19] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: VIB RMS trending up
+Action: reduced load to 70%.
+
+[2025-12-19] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (86 C).
+Action: checked lube oil pressure OK.
+
+[2025-12-19] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (95 C).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-12-22] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+
+[2025-12-22] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (105 C).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-12-22] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (61 kPa).
+Action: checked lube oil pressure OK.
+
+[2025-12-25] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Action: replaced inlet strainer; DP normalized.
+
+[2025-12-25] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Action: reduced load to 70%.
+
+[2025-12-27] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (55 kPa).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2025-12-29] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (107 C).
+Action: reduced load to 70%.
+
+[2025-12-30] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: temperature normalized after cleaning cooler fins (90 C).
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2026-01-01] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: inlet strainer partially blocked
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2026-01-02] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: oil sample metal particles elevated
+Recommendation: verify alignment at next shutdown.
+
+[2026-01-02] Operator report: suction pressure oscillations during startup; stabilized at normal load.
+
+[2026-01-03] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Action: oil sample taken; sent to lab.
+
+[2026-01-03] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (86 C).
+Action: checked lube oil pressure OK.
+
+[2026-01-03] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2026-01-03] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: temperature normalized after cleaning cooler fins (101 C).
+Action: reduced load to 70%.
+
+[2026-01-03] Operator note: minor seal oil header fluctuation; stabilized after 5 min.
+
+[2026-01-05] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: recommend bearing inspection and alignment verification
+Action: checked lube oil pressure OK.
+
+[2026-01-08] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (88 C).
+Action: reduced load to 70%.
+
+[2026-01-08] Alarm event: 'VFD_COMM_WARN' transient; cleared automatically.
+
+[2026-01-09] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: reset instrument air regulator to 6.2 bar.
+
+[2026-01-11] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2026-01-13] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (5.4 bar).
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2026-01-16] Maintenance: checked vibration probes; calibration within tolerance.
+
+[2026-01-19] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: bearing temperature spikes BEAR_TEMP_3 (94 C).
+Action: reduced load to 70%.
+
+[2026-01-20] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (105 C).
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2026-01-23] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: reduced load to 70%.
+
+[2026-01-23] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2026-01-26] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: oil sample metal particles elevated
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2026-01-27] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: temperature normalized after cleaning cooler fins (91 C).
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2026-01-27] Operator note: minor seal oil header fluctuation; stabilized after 5 min.
+
+[2026-01-27] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Action: oil sample taken; sent to lab.
+
+[2026-01-30] Operator note: minor seal oil header fluctuation; stabilized after 5 min.
+
+[2026-01-30] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (5.1 bar).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-01-31] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2026-01-31] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2026-02-03] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Recommendation: verify alignment at next shutdown.
+
+[2026-02-06] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Action: replaced inlet strainer; DP normalized.
+
+[2026-02-07] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: temperature normalized after cleaning cooler fins (90 C).
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2026-02-08] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+
+[2026-02-10] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2026-02-10] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: VIB RMS trending up
+Action: oil sample taken; sent to lab.
+
+[2026-02-11] Alarm event: 'VFD_COMM_WARN' transient; cleared automatically.
+
+[2026-02-14] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (108 C).
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2026-02-15] Operator report: suction pressure oscillations during startup; stabilized at normal load.
+Action: oil sample taken; sent to lab.
+
+[2026-02-18] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: recommend bearing inspection and alignment verification
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2026-02-21] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Action: oil sample taken; sent to lab.
+
+[2026-02-21] Operator report: suction pressure oscillations during startup; stabilized at normal load.
+
+[2026-02-24] Maintenance: checked vibration probes; calibration within tolerance.
+
+[2026-02-25] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: inlet strainer partially blocked
+Action: reset instrument air regulator to 6.2 bar.
+
+[2026-02-27] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Action: replaced inlet strainer; DP normalized.
+
+[2026-03-02] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: oil sample taken; sent to lab.
+
+[2026-03-05] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: oil sample metal particles elevated
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-03-06] Alarm event: 'VFD_COMM_WARN' transient; cleared automatically.
+
+[2026-03-09] Operator note: minor seal oil header fluctuation; stabilized after 5 min.
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-03-10] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: temperature normalized after cleaning cooler fins (94 C).
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2026-03-13] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (19 kPa).
+Action: reset instrument air regulator to 6.2 bar.
+
+[2026-03-15] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: suction filter DP increased (65 kPa).
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2026-03-18] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (110 C).
+Action: reset instrument air regulator to 6.2 bar.
+
+[2026-03-18] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: inlet strainer partially blocked
+Action: reduced load to 70%.
+
+[2026-03-18] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (51 kPa).
+Action: reset instrument air regulator to 6.2 bar.
+
+[2026-03-20] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Action: oil sample taken; sent to lab.
+
+[2026-03-21] Operator report: suction pressure oscillations during startup; stabilized at normal load.
+
+[2026-03-22] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (90 C).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-03-23] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+
+[2026-03-26] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2026-03-29] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: oil sample taken; sent to lab.
+
+[2026-03-31] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+
+[2026-04-02] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (5.2 bar).
+Action: oil sample taken; sent to lab.
+
+[2026-04-02] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2026-04-05] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: oil sample metal particles elevated
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2026-04-07] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (85 C).
+Action: checked lube oil pressure OK.
+
+[2026-04-09] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (89 C).
+Action: replaced inlet strainer; DP normalized.
+
+[2026-04-10] Alarm event: 'VFD_COMM_WARN' transient; cleared automatically.
+
+[2026-04-11] Maintenance: checked vibration probes; calibration within tolerance.
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2026-04-11] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: recommend bearing inspection and alignment verification
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2026-04-12] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: temperature normalized after cleaning cooler fins (87 C).
+Recommendation: verify alignment at next shutdown.
+
+[2026-04-12] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (5.0 bar).
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2026-04-15] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Recommendation: verify alignment at next shutdown.
+
+[2026-04-16] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2026-04-16] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (5.4 bar).
+Recommendation: verify alignment at next shutdown.
+
+[2026-04-18] Alarm event: 'VFD_COMM_WARN' transient; cleared automatically.
+
+[2026-04-18] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Action: reduced load to 70%.
+
+[2026-04-18] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-04-21] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (90 C).
+Action: oil sample taken; sent to lab.
+
+[2026-04-22] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (5.2 bar).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-04-23] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (5.0 bar).
+Action: reduced load to 70%.
+
+[2026-04-25] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: inlet strainer partially blocked
+Action: reset instrument air regulator to 6.2 bar.
+
+[2026-04-27] Alarm event: 'VFD_COMM_WARN' transient; cleared automatically.
+
+[2026-04-30] Alarm event: 'VFD_COMM_WARN' transient; cleared automatically.
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2026-05-01] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: VIB RMS trending up
+Action: oil sample taken; sent to lab.
+
+[2026-05-04] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2026-05-04] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2026-05-04] Maintenance: checked vibration probes; calibration within tolerance.
+
+[2026-05-05] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: recommend bearing inspection and alignment verification
+Action: checked lube oil pressure OK.
+
+[2026-05-06] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (54 kPa).
+Action: checked lube oil pressure OK.
+
+[2026-05-07] Operator report: suction pressure oscillations during startup; stabilized at normal load.
+
+[2026-05-07] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-05-09] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+
+[2026-05-11] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: recommend bearing inspection and alignment verification
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2026-05-11] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: bearing temperature spikes BEAR_TEMP_3 (106 C).
+Action: oil sample taken; sent to lab.
+
+[2026-05-14] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (95 C).
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2026-05-15] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (23 kPa).
+Recommendation: verify alignment at next shutdown.
+
+[2026-05-16] Operator note: minor seal oil header fluctuation; stabilized after 5 min.
+
+[2026-05-16] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: VIB RMS trending up
+Action: replaced inlet strainer; DP normalized.
+
+[2026-05-16] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2026-05-17] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (94 C).
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2026-05-17] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: recommend bearing inspection and alignment verification
+Recommendation: verify alignment at next shutdown.
+
+[2026-05-20] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Action: reduced load to 70%.
+
+[2026-05-20] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: bearing temperature spikes BEAR_TEMP_3 (95 C).
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2026-05-21] Operator report: suction pressure oscillations during startup; stabilized at normal load.
+
+[2026-05-23] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: recommend bearing inspection and alignment verification
+Recommendation: verify alignment at next shutdown.
+
+[2026-05-26] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (94 C).
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2026-05-29] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: inlet strainer partially blocked
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2026-05-31] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (109 C).
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2026-06-02] Operator note: minor seal oil header fluctuation; stabilized after 5 min.
+
+[2026-06-04] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: oil sample taken; sent to lab.
+
+[2026-06-07] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2026-06-07] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (4.9 bar).
+Action: reduced load to 70%.
+
+[2026-06-09] Maintenance: checked vibration probes; calibration within tolerance.
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-06-12] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (99 C).
+Action: oil sample taken; sent to lab.
+
+[2026-06-13] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+Action: reduced load to 70%.
+
+[2026-06-16] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2026-06-16] Operator report: suction pressure oscillations during startup; stabilized at normal load.
+
+[2026-06-18] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+
+[2026-06-20] Maintenance: checked vibration probes; calibration within tolerance.
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-06-21] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (90 C).
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2026-06-23] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (5.4 bar).
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2026-06-24] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: inlet strainer partially blocked
+Action: checked lube oil pressure OK.
+
+[2026-06-26] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: VIB RMS trending up
+Action: reset instrument air regulator to 6.2 bar.
+
+[2026-06-26] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: recommend bearing inspection and alignment verification
+Action: reduced load to 70%.
+
+[2026-06-26] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: oil sample metal particles elevated
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2026-06-27] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (4.9 bar).
+Recommendation: verify alignment at next shutdown.
+
+[2026-06-28] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Action: replaced inlet strainer; DP normalized.
+
+[2026-06-29] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: VIB RMS trending up
+Action: reduced load to 70%.
+
+[2026-07-01] Operator report: suction pressure oscillations during startup; stabilized at normal load.
+
+[2026-07-01] Operator report: suction pressure oscillations during startup; stabilized at normal load.
+
+[2026-07-01] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: bearing temperature spikes BEAR_TEMP_3 (101 C).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-07-04] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: replaced inlet strainer; DP normalized.
+
+[2026-07-05] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (4.8 bar).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-07-05] Operator note: minor seal oil header fluctuation; stabilized after 5 min.
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-07-08] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: reduced load to 70%.
+
+[2026-07-09] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2026-07-12] Operator note: minor seal oil header fluctuation; stabilized after 5 min.
+
+[2026-07-14] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Recommendation: verify alignment at next shutdown.
+
+[2026-07-17] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (108 C).
+Action: reduced load to 70%.
+
+[2026-07-20] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (89 C).
+Action: replaced inlet strainer; DP normalized.
+
+[2026-07-20] Alarm event: 'VFD_COMM_WARN' transient; cleared automatically.
+
+[2026-07-21] Operator note: minor seal oil header fluctuation; stabilized after 5 min.
+
+[2026-07-24] Operator note: minor seal oil header fluctuation; stabilized after 5 min.
+
+[2026-07-26] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: checked lube oil pressure OK.
+
+[2026-07-28] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: temperature normalized after cleaning cooler fins (86 C).
+Recommendation: verify alignment at next shutdown.
+
+[2026-07-29] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: oil sample taken; sent to lab.
+
+[2026-08-01] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2026-08-03] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Recommendation: verify alignment at next shutdown.
+
+[2026-08-03] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: suction filter DP increased (25 kPa).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-08-03] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: temperature normalized after cleaning cooler fins (97 C).
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2026-08-03] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: oil sample taken; sent to lab.
+
+[2026-08-05] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2026-08-08] Operator note: minor seal oil header fluctuation; stabilized after 5 min.
+
+[2026-08-10] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-08-12] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: suction filter DP increased (55 kPa).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-08-14] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: suction filter DP increased (61 kPa).
+Action: replaced inlet strainer; DP normalized.
+
+[2026-08-16] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (98 C).
+Action: replaced inlet strainer; DP normalized.
+
+[2026-08-17] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: VIB RMS trending up
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2026-08-20] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2026-08-21] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (87 C).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-08-24] Operator note: minor seal oil header fluctuation; stabilized after 5 min.
+
+[2026-08-26] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: suction filter DP increased (19 kPa).
+Recommendation: verify alignment at next shutdown.
+
+[2026-08-27] Alarm event: 'VFD_COMM_WARN' transient; cleared automatically.
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2026-08-29] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2026-08-29] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (21 kPa).
+Action: reset instrument air regulator to 6.2 bar.
+
+[2026-08-30] Alarm event: 'VFD_COMM_WARN' transient; cleared automatically.
+
+[2026-09-02] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Action: checked lube oil pressure OK.
+
+[2026-09-05] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (105 C).
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2026-09-05] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: VIB RMS trending up
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2026-09-06] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (5.2 bar).
+Action: reduced load to 70%.
+
+[2026-09-06] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: reduced load to 70%.
+
+[2026-09-09] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: suction filter DP increased (34 kPa).
+Action: checked lube oil pressure OK.
+
+[2026-09-10] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Recommendation: verify alignment at next shutdown.
+
+[2026-09-12] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2026-09-13] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+
+[2026-09-16] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+
+[2026-09-16] Operator report: suction pressure oscillations during startup; stabilized at normal load.
+
+[2026-09-16] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Action: reset instrument air regulator to 6.2 bar.
+
+[2026-09-19] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Action: oil sample taken; sent to lab.
+
+[2026-09-21] Maintenance: checked vibration probes; calibration within tolerance.
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-09-22] Alarm event: 'VFD_COMM_WARN' transient; cleared automatically.
+Action: oil sample taken; sent to lab.
+
+[2026-09-22] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: bearing temperature spikes BEAR_TEMP_3 (87 C).
+Action: oil sample taken; sent to lab.
+
+[2026-09-23] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: VIB RMS trending up
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2026-09-26] Operator report: suction pressure oscillations during startup; stabilized at normal load.
+
+[2026-09-26] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: oil sample metal particles elevated
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2026-09-28] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (88 C).
+Action: checked lube oil pressure OK.
+
+[2026-09-28] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Action: checked lube oil pressure OK.
+
+[2026-09-30] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (87 C).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-10-02] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: recommend bearing inspection and alignment verification
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2026-10-05] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: oil sample taken; sent to lab.
+
+[2026-10-07] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (99 C).
+Recommendation: verify alignment at next shutdown.
+
+[2026-10-08] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: temperature normalized after cleaning cooler fins (103 C).
+Recommendation: verify alignment at next shutdown.
+
+[2026-10-10] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: inlet strainer partially blocked
+Action: reduced load to 70%.
+
+[2026-10-11] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: temperature normalized after cleaning cooler fins (99 C).
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2026-10-14] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: valve position feedback oscillated
+Action: replaced inlet strainer; DP normalized.
+
+[2026-10-16] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: inlet strainer partially blocked
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2026-10-17] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: VIB RMS trending up
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-10-17] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (5.3 bar).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-10-20] Alarm event: 'VFD_COMM_WARN' transient; cleared automatically.
+
+[2026-10-20] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: reset instrument air regulator to 6.2 bar.
+
+[2026-10-22] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: temperature normalized after cleaning cooler fins (100 C).
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2026-10-22] Operator report: suction pressure oscillations during startup; stabilized at normal load.
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2026-10-25] Operator note: minor seal oil header fluctuation; stabilized after 5 min.
+
+[2026-10-25] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: bearing temperature spikes BEAR_TEMP_3 (95 C).
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2026-10-25] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (40 kPa).
+Action: reset instrument air regulator to 6.2 bar.
+
+[2026-10-27] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: recommend bearing inspection and alignment verification
+Suggested actions: verify cooler fan control loop; add DP monitoring on suction filter.
+
+[2026-10-30] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (106 C).
+Recommendation: verify alignment at next shutdown.
+
+[2026-11-02] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: temperature normalized after cleaning cooler fins (93 C).
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2026-11-05] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: bearing temperature spikes BEAR_TEMP_3 (87 C).
+Action: reset instrument air regulator to 6.2 bar.
+
+[2026-11-07] Maintenance: checked vibration probes; calibration within tolerance.
+
+[2026-11-09] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: suction filter DP increased (19 kPa).
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2026-11-12] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: oil sample metal particles elevated
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-11-15] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: recommend bearing inspection and alignment verification
+Action: oil sample taken; sent to lab.
+
+[2026-11-18] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: correlates with bearing temperature spikes BEAR_TEMP_3 (102 C).
+Recommendation: verify alignment at next shutdown.
+
+[2026-11-18] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: bearing temperature spikes BEAR_TEMP_3 (87 C).
+Action: reset instrument air regulator to 6.2 bar.
+
+[2026-11-21] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: bearing temperature spikes BEAR_TEMP_3 (107 C).
+Action: oil sample taken; sent to lab.
+
+[2026-11-24] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: recommend bearing inspection and alignment verification
+Action: reset instrument air regulator to 6.2 bar.
+
+[2026-11-24] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (5.6 bar).
+Action: tightened coupling guard; vibration reduced slightly.
+
+[2026-11-25] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Action: reset instrument air regulator to 6.2 bar.
+
+[2026-11-28] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: oil sample metal particles elevated
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-11-29] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: fan cycling irregular
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2026-11-29] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: bearing temperature spikes BEAR_TEMP_3 (94 C).
+Action: reduced load to 70%.
+
+[2026-12-02] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: vibration reduced slightly after tightening coupling guard
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-12-02] Operator report: suction pressure oscillations during startup; stabilized at normal load.
+
+[2026-12-02] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (97 C).
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-12-04] Maintenance: checked vibration probes; calibration within tolerance.
+
+[2026-12-05] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (24 kPa).
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2026-12-05] Alarm event: "VIB_HI_2". High Vibration on C-201.
+Evidence: VIB RMS trending up
+Recommendation: plan bearing inspection and alignment verification.
+
+[2026-12-08] Maintenance: checked vibration probes; calibration within tolerance.
+
+[2026-12-08] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: oil sample metal particles elevated
+Action: cleaned cooler fins; verified fan VFD parameters.
+
+[2026-12-09] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (92 C).
+Action: checked lube oil pressure OK.
+
+[2026-12-09] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: DP back to normal after replacement (36 kPa).
+Action: reduced load to 70%.
+
+[2026-12-10] Maintenance: checked vibration probes; calibration within tolerance.
+
+[2026-12-10] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: bearing temperature spikes BEAR_TEMP_3 (91 C).
+Action: reduced load to 70%.
+
+[2026-12-11] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+Recommendation: verify alignment at next shutdown.
+
+[2026-12-13] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (5.6 bar).
+Action: checked lube oil pressure OK.
+
+[2026-12-14] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: bearing temperature spikes BEAR_TEMP_3 (95 C).
+Action: oil sample taken; sent to lab.
+
+[2026-12-17] Alarm event: "LUBE_OIL_TEMP_HI". Lube Oil Temperature High on C-201.
+Evidence: lube oil cooler outlet temp rising (89 C).
+Action: reset instrument air regulator to 6.2 bar.
+
+[2026-12-20] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: actuator air supply pressure low (5.2 bar).
+Action: checked lube oil pressure OK.
+
+[2026-12-22] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: inlet strainer partially blocked
+Action: oil sample taken; sent to lab.
+
+[2026-12-22] Operator report: suction pressure oscillations during startup; stabilized at normal load.
+
+[2026-12-24] Alarm event: "SUCTION_FILTER_DP_HI". Suction Filter Differential Pressure High on C-201.
+Evidence: suction filter DP increased (40 kPa).
+Action: reset instrument air regulator to 6.2 bar.
+
+[2026-12-25] Alarm event: "SURGE_CTRL_VALVE_STUCK". Anti-Surge Valve Feedback Lag on C-201.
+Evidence: regulator drift on instrument air header
+Action: reduced load to 70%.
+
+[2026-12-27] Inspection: found slight oil misting near flange; tightened bolts; no further leak.
+
+[2026-12-27] Alarm event: "BEAR_TEMP_3_HI". Bearing Temperature Spike on C-201.
+Evidence: bearing temperature spikes BEAR_TEMP_3 (99 C).
+Recommendation: verify alignment at next shutdown.
+
+[2026-12-29] Root cause note (synthetic):
+Preliminary: misalignment + intermittent lube cooling performance + suction restriction episodes.
+Suggested actions: alignment check; inspect coupling; verify cooler fan control; instrument air audit; add DP monitoring.
+
+END SYNTHETIC LOG

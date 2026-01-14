@@ -1,0 +1,22 @@
+# Secrets
+.env
+.env.*
+
+# Local video/audio artifacts
+data/camera/**
+reports/camera/**
+*.mp4
+*.mkv
+*.avi
+*.mov
+*.jpg
+*.png
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+
+
