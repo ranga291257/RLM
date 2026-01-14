@@ -38,6 +38,10 @@ except ImportError:
     OLLAMA_CLIENT_AVAILABLE = False
     Client = Any  # type: ignore[misc,assignment]
 
+# Treat the folder containing this file as the project root.
+# (This repo keeps `rag_demo.py` and `synthetic_maintenance_log.txt` side-by-side.)
+PROJECT_ROOT = Path(__file__).resolve().parent
+
 
 # -----------------------------
 # RAG Components
@@ -406,13 +410,13 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--synthetic-file",
-        default=r"d:\poc\bespoke\synthetic_maintenance_log.txt",
-        help="Path to synthetic .txt file.",
+        default=str(PROJECT_ROOT / "synthetic_maintenance_log.txt"),
+        help="Path to synthetic .txt file (default: repo's synthetic_maintenance_log.txt).",
     )
     parser.add_argument(
         "--output-file",
-        default=r"d:\poc\bespoke\rag_analysis_output.md",
-        help="Output markdown file.",
+        default=str(PROJECT_ROOT / "rag_analysis_output.md"),
+        help="Output markdown file (default: repo's rag_analysis_output.md).",
     )
 
     args = parser.parse_args()

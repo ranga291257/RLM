@@ -1,6 +1,6 @@
 # RLM vs RAG Comparison Report
 
-Generated: 2026-01-14 09:38:02
+Generated: 2026-01-14 18:01:49
 
 ## Overview
 
@@ -38,7 +38,7 @@ supports them, and what actions are recommended?"
 1691 characters
 
 ### RAG Output Length
-3046 characters
+1424 characters
 
 ---
 
@@ -114,85 +114,35 @@ supports them, and what actions are recommended?"
 
 ## RAG Approach Details
 
-- **Total chunks created:** 24
-- **Chunks retrieved:** 15
-- **Chunk size:** 500 words
-- **Chunk overlap:** 50 words
+- **Total chunks created:** 268
+- **Chunks retrieved:** 1
+- **Chunk size:** 50 words
+- **Chunk overlap:** 10 words
 - **Embedding model:** nomic-embed-text
 
 ### Retrieved Chunks (with similarity scores):
 
-- **RAG_CHUNK_017** (similarity: 0.461)
-- **RAG_CHUNK_022** (similarity: 0.461)
-- **RAG_CHUNK_020** (similarity: 0.454)
-- **RAG_CHUNK_012** (similarity: 0.454)
-- **RAG_CHUNK_015** (similarity: 0.451)
-- **RAG_CHUNK_002** (similarity: 0.449)
-- **RAG_CHUNK_000** (similarity: 0.447)
-- **RAG_CHUNK_016** (similarity: 0.445)
-- **RAG_CHUNK_018** (similarity: 0.444)
-- **RAG_CHUNK_011** (similarity: 0.437)
-- **RAG_CHUNK_003** (similarity: 0.434)
-- **RAG_CHUNK_019** (similarity: 0.430)
-- **RAG_CHUNK_013** (similarity: 0.429)
-- **RAG_CHUNK_023** (similarity: 0.429)
-- **RAG_CHUNK_021** (similarity: 0.424)
+- **RAG_CHUNK_184** (similarity: 0.526)
 
 ---
 
 ## Answer
 
-**Recurring Problems and Recommended Actions**
+**Recurring Problems**
 
-### Lube Oil Temperature High
+* **Lube Oil Temperature Issues**
+	+ Evidence: 
+		- Alarm event: "LUBE_OIL_TEMP_HI" on C-201 (RAG_CHUNK_184)
+		- Alarm event: "BEAR_TEMP_3_HI" (no CHUNK_ID provided, but likely related to RAG_CHUNK_184)
+	+ Recommended Actions:
+		- Plan bearing inspection and alignment verification (RAG_CHUNK_184)
+* **Suction Pressure Oscillations**
+	+ Evidence: 
+		- Operator report: suction pressure oscillations during startup; stabilized at normal load (RAG_CHUNK_184)
+	+ Recommended Actions:
+		- Plan bearing inspection and alignment verification (RAG_CHUNK_184)
 
-* Evidence: lube oil cooler outlet temp rising, fan cycling irregular
-* Recommended Actions:
-	+ Check lube oil pressure OK
-	+ Clean cooler fins
-	+ Verify alignment at next shutdown
-	+ Reset instrument air regulator to 6.2 bar (if necessary)
-
-### Suction Filter Differential Pressure High
-
-* Evidence: suction filter DP increased, inlet strainer partially blocked
-* Recommended Actions:
-	+ Replace inlet strainer
-	+ Tighten coupling guard
-	+ Vibration reduction measures
-	+ Verify alignment at next shutdown
-
-### Bearing Temperature Spike
-
-* Evidence: bearing temperature spikes BEAR_TEMP_3
-* Recommended Actions:
-	+ Tighten coupling guard
-	+ Vibration reduction measures
-	+ Verify alignment at next shutdown
-	+ Plan bearing inspection and alignment verification
-
-### Surge Control Valve Feedback Lag
-
-* Evidence: valve position feedback oscillated, actuator air supply pressure low
-* Recommended Actions:
-	+ Replace surge control valve
-	+ Tighten coupling guard
-	+ Vibration reduction measures
-	+ Verify alignment at next shutdown
-
-**Recurring Problems by Type**
-
-* **Lube Oil Temperature High**: 12 occurrences (2026-09-01, 2026-10-05, ..., 2026-11-02)
-* **Suction Filter Differential Pressure High**: 8 occurrences (2026-09-15, 2026-10-10, ..., 2026-11-09)
-* **Bearing Temperature Spike**: 7 occurrences (2026-09-20, 2026-10-25, ..., 2026-11-07)
-* **Surge Control Valve Feedback Lag**: 5 occurrences (2026-09-25, 2026-10-14, ..., 2026-11-12)
-
-**CHUNK_ID References**
-
-* RAG_CHUNK_001: Lube Oil Temperature High
-* RAG_CHUNK_002: Suction Filter Differential Pressure High
-* RAG_CHUNK_003: Bearing Temperature Spike
-* RAG_CHUNK_004: Surge Control Valve Feedback Lag
+Note: The CHUNK_ID for the second alarm event is not provided, but it is likely related to RAG_CHUNK_184.
 
 ---
 

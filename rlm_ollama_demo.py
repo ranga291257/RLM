@@ -483,6 +483,10 @@ def rlm_answer_question(
 
 
 if __name__ == "__main__":
+    # Treat the folder containing this file as the project root.
+    # (This repo keeps `rlm_ollama_demo.py` and `synthetic_maintenance_log.txt` side-by-side.)
+    PROJECT_ROOT = Path(__file__).resolve().parent
+
     parser = argparse.ArgumentParser(description="RLM-style Ollama demo (loads a doc file).")
     parser.add_argument("--model", default="gpt-oss:120b-cloud", help="Ollama model name (cloud models end with '-cloud').")
     parser.add_argument("--cloud", action="store_true", default=None, help="Force use of Ollama Cloud.")
@@ -500,7 +504,11 @@ if __name__ == "__main__":
     parser.add_argument("--doc-file", default=None, help="Path to a text file to analyze.")
 
     # Synthetic doc is stored as a separate .txt file
-    parser.add_argument("--synthetic-file", default=r"d:\poc\bespoke\synthetic_maintenance_log.txt", help="Path to synthetic .txt file.")
+    parser.add_argument(
+        "--synthetic-file",
+        default=str(PROJECT_ROOT / "synthetic_maintenance_log.txt"),
+        help="Path to synthetic .txt file (default: repo's synthetic_maintenance_log.txt).",
+    )
     parser.add_argument("--generate-synthetic", action="store_true", help="Generate/overwrite the synthetic file before running.")
     parser.add_argument("--entries", type=int, default=250, help="Synthetic entries to generate (only if generating).")
     parser.add_argument("--seed", type=int, default=42, help="Synthetic RNG seed (only if generating).")

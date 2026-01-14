@@ -8,81 +8,35 @@
 
 ## RAG Approach Details
 
-- **Total chunks created:** 24
-- **Chunks retrieved:** 15
-- **Chunk size:** 500 words
-- **Chunk overlap:** 50 words
+- **Total chunks created:** 268
+- **Chunks retrieved:** 1
+- **Chunk size:** 50 words
+- **Chunk overlap:** 10 words
 - **Embedding model:** nomic-embed-text
 
 ### Retrieved Chunks (with similarity scores):
 
-- **RAG_CHUNK_017** (similarity: 0.461)
-- **RAG_CHUNK_022** (similarity: 0.461)
-- **RAG_CHUNK_020** (similarity: 0.454)
-- **RAG_CHUNK_012** (similarity: 0.454)
-- **RAG_CHUNK_015** (similarity: 0.451)
-- **RAG_CHUNK_002** (similarity: 0.449)
-- **RAG_CHUNK_000** (similarity: 0.447)
-- **RAG_CHUNK_016** (similarity: 0.445)
-- **RAG_CHUNK_018** (similarity: 0.444)
-- **RAG_CHUNK_011** (similarity: 0.437)
-- **RAG_CHUNK_003** (similarity: 0.434)
-- **RAG_CHUNK_019** (similarity: 0.430)
-- **RAG_CHUNK_013** (similarity: 0.429)
-- **RAG_CHUNK_023** (similarity: 0.429)
-- **RAG_CHUNK_021** (similarity: 0.424)
+- **RAG_CHUNK_184** (similarity: 0.526)
 
 ---
 
 ## Answer
 
-Here is the reformatted output:
-
 **Recurring Problems**
 
-* **Lube Oil Temperature High**
-	+ Evidence:
-		- Lube oil cooler outlet temp rising (92 C, 89 C, 93 C, etc.)
-		- Fan cycling irregular
-		- Temperature normalized after cleaning cooler fins
+* **Lube Oil Temperature Issues**
+	+ Evidence: 
+		- Alarm event: "LUBE_OIL_TEMP_HI" on C-201 (RAG_CHUNK_184)
+		- Alarm event: "BEAR_TEMP_3_HI" (no CHUNK_ID provided, but likely related to RAG_CHUNK_184)
 	+ Recommended Actions:
-		- Check lube oil pressure OK
-		- Clean cooler fins
-		- Verify alignment at next shutdown
-* **Suction Filter Differential Pressure High**
-	+ Evidence:
-		- DP back to normal after replacement (36 kPa, 40 kPa, etc.)
-		- Inlet strainer partially blocked
-		- Suction filter DP increased (19 kPa)
+		- Plan bearing inspection and alignment verification (RAG_CHUNK_184)
+* **Suction Pressure Oscillations**
+	+ Evidence: 
+		- Operator report: suction pressure oscillations during startup; stabilized at normal load (RAG_CHUNK_184)
 	+ Recommended Actions:
-		- Replace inlet strainer
-		- Tighten coupling guard
-		- Verify alignment at next shutdown
-* **Vibration High**
-	+ Evidence:
-		- VIB RMS trending up
-		- Correlates with bearing temperature spikes BEAR_TEMP_3 (99 C, 95 C, etc.)
-	+ Recommended Actions:
-		- Verify alignment at next shutdown
-		- Clean cooler fins
-		- Verify fan VFD parameters
-* **Surge Control Valve Stuck**
-	+ Evidence:
-		- Valve position feedback oscillated
-		- Actuator air supply pressure low (5.2 bar, 5.3 bar)
-	+ Recommended Actions:
-		- Replace valve or adjust settings
-		- Verify alignment at next shutdown
+		- Plan bearing inspection and alignment verification (RAG_CHUNK_184)
 
-**Root Cause Analysis**
-
-* Preliminary: misalignment + intermittent lube cooling performance + suction restriction episodes
-* Suggested actions:
-	+ Alignment check
-	+ Inspect coupling
-	+ Verify cooler fan control
-	+ Instrument air audit
-	+ Add DP monitoring
+Note: The CHUNK_ID for the second alarm event is not provided, but it is likely related to RAG_CHUNK_184.
 
 ---
 

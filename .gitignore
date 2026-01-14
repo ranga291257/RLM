@@ -3,8 +3,6 @@
 .env.*
 
 # Local video/audio artifacts
-data/camera/**
-reports/camera/**
 *.mp4
 *.mkv
 *.avi
@@ -17,6 +15,11 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+rlm_env/
 
 
 
+rlm_vs_rag_comparison_report.md
+rag_analysis_output.md
+rag_analysis_output.md
+rlm_vs_rag_comparison_report.md
