@@ -7,7 +7,11 @@ This repo is a **side-by-side demo** of two ways to analyze a long text document
 - **RLM-style** (`rlm_ollama_demo.py`): query-driven scanning + recursive summarization with evidence chunk IDs.
 - **RAG-style** (`rag_demo.py`): pre-chunk + embed + retrieve top‑K chunks + answer from retrieved context only.
 
-The default demo document is `synthetic_maintenance_log.txt`.
+The default demo document is `input/synthetic_maintenance_log.txt`.
+
+**Directory Structure:**
+- `input/` - Place your documents here (.txt, .pdf files)
+- `output/` - Generated analysis files (.md) are written here
 
 ---
 
@@ -18,6 +22,17 @@ The default demo document is `synthetic_maintenance_log.txt`.
   - Start the server: `ollama serve` (or just open the Ollama app on Windows)
 - For **Ollama Cloud**: Set `OLLAMA_API_KEY` environment variable
 - **PDF support**: `PyPDF2` is included in `requirements.txt` (installed automatically)
+
+---
+
+## Directory Structure
+
+The project uses organized directories:
+
+- **`input/`** - Place your input documents here (.txt, .pdf files)
+- **`output/`** - Generated analysis files (.md) are written here
+
+Both directories are created automatically when you run the scripts.
 
 ---
 
@@ -71,8 +86,12 @@ python .\rlm_ollama_demo.py --no-cloud --model llama3.2:3b --question "What are 
 **Local with custom document (supports .txt and .pdf):**
 
 ```powershell
-python .\rlm_ollama_demo.py --no-cloud --model llama3.2:3b --doc-file ".\my_log.txt"
-python .\rlm_ollama_demo.py --no-cloud --model llama3.2:3b --doc-file ".\maintenance_report.pdf"
+# Relative path (looks in input/ directory)
+python .\rlm_ollama_demo.py --no-cloud --model llama3.2:3b --doc-file "my_log.txt"
+python .\rlm_ollama_demo.py --no-cloud --model llama3.2:3b --doc-file "maintenance_report.pdf"
+
+# Or absolute path
+python .\rlm_ollama_demo.py --no-cloud --model llama3.2:3b --doc-file ".\input\my_log.txt"
 ```
 
 **Local with performance tuning (faster, fewer spans):**
@@ -132,11 +151,12 @@ python .\rlm_ollama_demo.py --cloud --model gpt-oss:120b-cloud --num-predict 400
 | `--fallback-chunk-chars` | `2200`                          | Chunk size if keyword search returns too little           |
 | `--fallback-overlap`     | `200`                           | Chunk overlap if keyword search returns too little        |
 | `--doc-file`             | None                              | Path to a text or PDF file to analyze (.txt or .pdf)     |
-| `--synthetic-file`       | `synthetic_maintenance_log.txt` | Path to synthetic .txt file                               |
+| `--synthetic-file`       | `input/synthetic_maintenance_log.txt` | Path to synthetic .txt file                    |
 | `--generate-synthetic`   | False                             | Generate/overwrite the synthetic file before running      |
 | `--entries`              | `250`                           | Synthetic entries to generate (only if generating)        |
 | `--seed`                 | `42`                            | Synthetic RNG seed (only if generating)                   |
 | `--asset`                | `C-201`                         | Asset tag for synthetic doc (only if generating)          |
+| `--output-file`          | `output/rlm_analysis_output.md` | Write output to markdown file (default: writes to file)  |
 
 ---
 
@@ -216,8 +236,8 @@ python .\rag_demo.py --cloud --model llama3.2:latest-cloud --api-key "your_api_k
 | `--chunk-overlap`   | `50`                            | Chunk overlap in words (RAG parameter)                   |
 | `--embedding-model` | `nomic-embed-text`              | Ollama embedding model (local)                           |
 | `--doc-file`        | None                              | Path to a text or PDF file to analyze (.txt or .pdf)    |
-| `--synthetic-file`  | `synthetic_maintenance_log.txt` | Path to synthetic .txt file                              |
-| `--output-file`     | `rag_analysis_output.md`        | Output markdown file                                     |
+| `--synthetic-file`  | `input/synthetic_maintenance_log.txt` | Path to synthetic .txt file                 |
+| `--output-file`     | `output/rag_analysis_output.md` | Output markdown file                                    |
 
 ---
 
@@ -229,10 +249,10 @@ After running both demos, compare their outputs:
 python .\compare_rlm_vs_rag.py --compare-only
 ```
 
-This creates `rlm_vs_rag_comparison_report.md` comparing:
+This creates `output/rlm_vs_rag_comparison_report.md` comparing:
 
-- `rlm_analysis_output.md` (from RLM demo)
-- `rag_analysis_output.md` (from RAG demo)
+- `output/rlm_analysis_output.md` (from RLM demo)
+- `output/rag_analysis_output.md` (from RAG demo)
 
 ---
 
@@ -265,18 +285,26 @@ This creates `rlm_vs_rag_comparison_report.md` comparing:
 **Example:**
 
 ```powershell
-python .\synthetic_data.py --out .\synthetic_maintenance_log.txt --entries 250 --seed 42
+# Default writes to input/synthetic_maintenance_log.txt
+python .\synthetic_data.py --entries 250 --seed 42
+
+# Or specify custom path
+python .\synthetic_data.py --out .\input\my_custom_log.txt --entries 250 --seed 42
 ```
 
 ---
 
 ## Output Files
 
-After running the demos, you'll find these files in the repo root:
+After running the demos, you'll find these files in the `output/` directory:
 
-- `rlm_analysis_output.md` - RLM analysis results
-- `rag_analysis_output.md` - RAG analysis results
-- `rlm_vs_rag_comparison_report.md` - Side-by-side comparison
+- `rag_analysis_output.md` - RAG analysis results (always generated)
+- `rlm_vs_rag_comparison_report.md` - Side-by-side comparison (from compare script)
+
+**Note**: RLM demo writes to `output/rlm_analysis_output.md` by default. To disable file output:
+```powershell
+python .\rlm_ollama_demo.py --no-cloud --model llama3.2:3b --output-file ""
+```
 
 ---
 
@@ -319,10 +347,11 @@ Both RLM and RAG demos support:
 
 ```powershell
 # RLM with PDF (auto-detects text-based vs scanned)
-python .\rlm_ollama_demo.py --no-cloud --model llama3.2:3b --doc-file ".\report.pdf"
+# Place PDF in input/ directory first, then:
+python .\rlm_ollama_demo.py --no-cloud --model llama3.2:3b --doc-file "report.pdf"
 
 # RAG with PDF
-python .\rag_demo.py --no-cloud --doc-file ".\report.pdf"
+python .\rag_demo.py --no-cloud --doc-file "report.pdf"
 ```
 
 ### PDF Processing Details
@@ -403,3 +432,16 @@ python .\rag_demo.py --no-cloud --doc-file ".\report.pdf"
 - Increase `--timeout` (default: 900 seconds)
 - Reduce `--max-spans` or `--top-k` for faster processing
 - Use a smaller model
+
+---
+
+## References
+
+This demo implements the **Recursive Language Model (RLM)** approach described in:
+
+**Recursive Language Models**  
+Alex L. Zhang, Tim Kraska, Omar Khattab  
+arXiv:2512.24601, 2025  
+https://arxiv.org/abs/2512.24601
+
+> *"We study allowing large language models (LLMs) to process arbitrarily long prompts through the lens of inference-time scaling. We propose Recursive Language Models (RLMs), a general inference strategy that treats long prompts as part of an external environment and allows the LLM to programmatically examine, decompose, and recursively call itself over snippets of the prompt."*

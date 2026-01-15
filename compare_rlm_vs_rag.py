@@ -30,8 +30,12 @@ def run_command(cmd, description):
 
 def compare_outputs(rlm_file, rag_file):
     """Compare the two output files and create a comparison report."""
-    rlm_path = Path(rlm_file)
-    rag_path = Path(rag_file)
+    # Default to output/ directory if relative paths
+    output_dir = Path("output")
+    output_dir.mkdir(exist_ok=True)
+    
+    rlm_path = Path(rlm_file) if Path(rlm_file).is_absolute() else output_dir / rlm_file
+    rag_path = Path(rag_file) if Path(rag_file).is_absolute() else output_dir / rag_file
     
     if not rlm_path.exists():
         print(f"ERROR: RLM output file not found: {rlm_path}")
@@ -55,7 +59,7 @@ This report compares the outputs from:
 - **RLM approach**: `rlm_ollama_demo.py`
 - **RAG approach**: `rag_demo.py`
 
-Both approaches analyzed the same document (`synthetic_maintenance_log.txt`) 
+    Both approaches analyzed the same document (`input/synthetic_maintenance_log.txt`)
 with the same question: "What are the recurring problems, what evidence 
 supports them, and what actions are recommended?"
 
@@ -133,7 +137,7 @@ For **sparse tasks** (like finding specific facts):
 
 """
     
-    comparison_path = Path("rlm_vs_rag_comparison_report.md")
+    comparison_path = output_dir / "rlm_vs_rag_comparison_report.md"
     comparison_path.write_text(comparison, encoding='utf-8')
     print(f"\nComparison report written to: {comparison_path}")
 
@@ -145,8 +149,8 @@ if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "--compare-only":
         print("Comparing existing output files...")
         compare_outputs(
-            "rlm_analysis_output.md",
-            "rag_analysis_output.md"
+            "rlm_analysis_output.md",  # Will look in output/ directory
+            "rag_analysis_output.md"   # Will look in output/ directory
         )
     else:
         print("This script will help you run both approaches.")

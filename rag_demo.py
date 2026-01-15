@@ -55,8 +55,13 @@ except ImportError:
     Client = Any  # type: ignore[misc,assignment]
 
 # Treat the folder containing this file as the project root.
-# (This repo keeps `rag_demo.py` and `synthetic_maintenance_log.txt` side-by-side.)
 PROJECT_ROOT = Path(__file__).resolve().parent
+
+# Create input/ and output/ directories if they don't exist
+INPUT_DIR = PROJECT_ROOT / "input"
+OUTPUT_DIR = PROJECT_ROOT / "output"
+INPUT_DIR.mkdir(exist_ok=True)
+OUTPUT_DIR.mkdir(exist_ok=True)
 
 
 # -----------------------------
@@ -532,17 +537,19 @@ if __name__ == "__main__":
         help="Ollama embedding model (local).",
     )
     parser.add_argument(
-        "--doc-file", default=None, help="Path to a text or PDF file to analyze (.txt or .pdf)."
+        "--doc-file",
+        default=None,
+        help="Path to a text or PDF file to analyze (.txt or .pdf). If relative, looks in input/ directory.",
     )
     parser.add_argument(
         "--synthetic-file",
-        default=str(PROJECT_ROOT / "synthetic_maintenance_log.txt"),
-        help="Path to synthetic .txt file (default: repo's synthetic_maintenance_log.txt).",
+        default=str(INPUT_DIR / "synthetic_maintenance_log.txt"),
+        help="Path to synthetic .txt file (default: input/synthetic_maintenance_log.txt).",
     )
     parser.add_argument(
         "--output-file",
-        default=str(PROJECT_ROOT / "rag_analysis_output.md"),
-        help="Output markdown file (default: repo's rag_analysis_output.md).",
+        default=str(OUTPUT_DIR / "rag_analysis_output.md"),
+        help="Output markdown file (default: output/rag_analysis_output.md).",
     )
 
     args = parser.parse_args()
@@ -574,6 +581,9 @@ if __name__ == "__main__":
     # Load document
     if args.doc_file:
         doc_path = Path(args.doc_file)
+        # If relative path, try input/ directory first
+        if not doc_path.is_absolute() and not doc_path.exists():
+            doc_path = INPUT_DIR / doc_path
         if not doc_path.exists():
             print(f"ERROR: File not found: {doc_path}")
             sys.exit(1)
@@ -668,8 +678,9 @@ if __name__ == "__main__":
 
         output_content = "\n".join(output_lines)
 
-        # Write to file
+        # Write to file (ensure output directory exists)
         output_path = Path(args.output_file)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(output_content, encoding="utf-8")
         print(f"\n[RAG] Output written to: {output_path}")
 

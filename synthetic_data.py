@@ -117,8 +117,19 @@ def write_synthetic_doc(path: str, cfg: SyntheticDocConfig) -> Path:
 
 
 if __name__ == "__main__":
+    from pathlib import Path
+    
+    # Default to input/ directory
+    PROJECT_ROOT = Path(__file__).resolve().parent
+    INPUT_DIR = PROJECT_ROOT / "input"
+    INPUT_DIR.mkdir(exist_ok=True)
+    
     parser = argparse.ArgumentParser(description="Generate a synthetic maintenance log text file.")
-    parser.add_argument("--out", default="synthetic_maintenance_log.txt", help="Output .txt path.")
+    parser.add_argument(
+        "--out",
+        default=str(INPUT_DIR / "synthetic_maintenance_log.txt"),
+        help="Output .txt path (default: input/synthetic_maintenance_log.txt).",
+    )
     parser.add_argument("--entries", type=int, default=250, help="Number of log entries to generate.")
     parser.add_argument("--seed", type=int, default=42, help="RNG seed (repeatable output).")
     parser.add_argument("--asset", default="C-201", help="Asset tag, e.g. C-201.")
