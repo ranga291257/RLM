@@ -10,6 +10,22 @@ import requests
 
 from synthetic_data import SyntheticDocConfig, write_synthetic_doc
 
+# PDF support
+try:
+    from PyPDF2 import PdfReader
+    PDF_AVAILABLE = True
+except ImportError:
+    PDF_AVAILABLE = False
+
+# OCR support (optional - for scanned PDFs)
+try:
+    import pytesseract
+    from pdf2image import convert_from_path
+    from PIL import Image
+    OCR_AVAILABLE = True
+except ImportError:
+    OCR_AVAILABLE = False
+
 # Fix Windows console encoding
 if sys.platform == 'win32':
     sys.stdout.reconfigure(encoding='utf-8')
@@ -197,60 +213,150 @@ def safe_json_load(s: str) -> Dict[str, Any]:
 def format_output(text: str, max_line_length: int = 100) -> str:
     """
     Clean up and format output text for better readability.
+    Simple word-wrapping that preserves markdown tables.
     """
     lines = text.split('\n')
     formatted_lines = []
     
     for line in lines:
-        # Skip empty lines
-        if not line.strip():
-            formatted_lines.append('')
-            continue
-        
-        # Don't break markdown table separators or headers
-        if line.strip().startswith('|') and '---' in line:
+        # Preserve empty lines and markdown table separators
+        if not line.strip() or (line.strip().startswith('|') and '---' in line):
             formatted_lines.append(line)
             continue
         
-        # For very long lines, try to break them intelligently
-        if len(line) > max_line_length:
-            # Try to break at sentence boundaries first
-            if '. ' in line:
-                parts = line.split('. ')
-                for i, part in enumerate(parts):
-                    if i < len(parts) - 1:
-                        part += '.'
-                    if len(part) > max_line_length:
-                        # Break at commas or other punctuation
-                        if ', ' in part:
-                            subparts = part.split(', ')
-                            for j, subpart in enumerate(subparts):
-                                if j < len(subparts) - 1:
-                                    subpart += ','
-                                formatted_lines.append(subpart.strip())
-                        else:
-                            formatted_lines.append(part.strip())
-                    else:
-                        formatted_lines.append(part.strip())
-            else:
-                # Just break at spaces if no sentence boundaries
-                words = line.split()
-                current_line = []
-                current_length = 0
-                for word in words:
-                    if current_length + len(word) + 1 > max_line_length and current_line:
-                        formatted_lines.append(' '.join(current_line))
-                        current_line = [word]
-                        current_length = len(word)
-                    else:
-                        current_line.append(word)
-                        current_length += len(word) + 1
-                if current_line:
-                    formatted_lines.append(' '.join(current_line))
+        # Simple word-wrapping for long lines
+        if len(line) <= max_line_length:
+            formatted_lines.append(line)
         else:
-            formatted_lines.append(line)
+            words = line.split()
+            current_line = []
+            current_length = 0
+            
+            for word in words:
+                word_len = len(word)
+                # If adding this word would exceed limit, start a new line
+                if current_length + word_len + 1 > max_line_length and current_line:
+                    formatted_lines.append(' '.join(current_line))
+                    current_line = [word]
+                    current_length = word_len
+                else:
+                    current_line.append(word)
+                    current_length += word_len + (1 if current_line else 0)
+            
+            if current_line:
+                formatted_lines.append(' '.join(current_line))
     
     return '\n'.join(formatted_lines)
+
+
+def is_text_based_pdf(file_path: Path, min_text_length: int = 50) -> bool:
+    """
+    Check if PDF is text-based (has extractable text) or scanned (image-based).
+    Returns True if text-based, False if likely scanned.
+    """
+    if not PDF_AVAILABLE:
+        return False
+    
+    try:
+        reader = PdfReader(str(file_path))
+        total_text = ""
+        # Check first few pages for text
+        pages_to_check = min(3, len(reader.pages))
+        for i in range(pages_to_check):
+            page_text = reader.pages[i].extract_text()
+            if page_text:
+                total_text += page_text
+        
+        # If we got meaningful text, it's text-based
+        return len(total_text.strip()) >= min_text_length
+    except Exception:
+        return False
+
+
+def extract_text_from_pdf_with_ocr(file_path: Path) -> str:
+    """
+    Extract text from scanned PDF using OCR (Tesseract).
+    Requires: Tesseract installed + pytesseract + pdf2image
+    """
+    if not OCR_AVAILABLE:
+        raise ImportError(
+            "OCR dependencies not installed. For scanned PDFs, install:\n"
+            "  pip install pytesseract pdf2image pillow\n"
+            "  And install Tesseract: https://github.com/UB-Mannheim/tesseract/wiki"
+        )
+    
+    print("[INFO] Detected scanned PDF. Using OCR (this may take a while)...")
+    text_parts = []
+    
+    try:
+        # Convert PDF pages to images
+        images = convert_from_path(str(file_path), dpi=300)
+        print(f"[INFO] Processing {len(images)} pages with OCR...")
+        
+        for i, image in enumerate(images):
+            print(f"[INFO] OCR page {i+1}/{len(images)}...", end='\r')
+            # Extract text using Tesseract
+            page_text = pytesseract.image_to_string(image, lang='eng')
+            if page_text.strip():
+                text_parts.append(page_text)
+        
+        print()  # New line after progress
+        result = '\n\n'.join(text_parts)
+        
+        if not result.strip():
+            raise RuntimeError("OCR extracted no text. PDF may be empty or corrupted.")
+        
+        print(f"[INFO] OCR complete. Extracted {len(result)} characters.")
+        return result
+    except Exception as e:
+        raise RuntimeError(f"OCR failed: {e}") from e
+
+
+def extract_text_from_file(file_path: Path) -> str:
+    """
+    Extract text from a file. Supports .txt and .pdf files.
+    Automatically detects text-based vs scanned PDFs and uses OCR if needed.
+    """
+    suffix = file_path.suffix.lower()
+    
+    if suffix == '.txt':
+        return file_path.read_text(encoding='utf-8')
+    elif suffix == '.pdf':
+        if not PDF_AVAILABLE:
+            raise ImportError(
+                "PyPDF2 not installed. Install with: pip install PyPDF2"
+            )
+        
+        # First, try to extract text directly
+        text_parts = []
+        try:
+            reader = PdfReader(str(file_path))
+            for page in reader.pages:
+                text_parts.append(page.extract_text())
+            extracted_text = '\n\n'.join(text_parts)
+        except Exception as e:
+            raise RuntimeError(f"Failed to read PDF: {e}") from e
+        
+        # Check if it's text-based or scanned
+        if is_text_based_pdf(file_path):
+            print("[INFO] Text-based PDF detected. Using direct text extraction.")
+            return extracted_text
+        else:
+            # Likely scanned PDF - use OCR
+            print("[INFO] Scanned PDF detected (little/no extractable text).")
+            if not OCR_AVAILABLE:
+                print("[WARNING] OCR not available. Returning minimal extracted text.")
+                print("[WARNING] For better results, install OCR dependencies:")
+                print("[WARNING]   pip install pytesseract pdf2image pillow")
+                print("[WARNING]   And install Tesseract OCR")
+                return extracted_text  # Return what we got, even if minimal
+            
+            # Use OCR
+            return extract_text_from_pdf_with_ocr(file_path)
+    else:
+        raise ValueError(
+            f"Unsupported file type: {suffix}. Supported: .txt, .pdf"
+        )
 
 
 def chunk_text(text: str, max_chars: int = 2500, overlap: int = 200) -> List[str]:
@@ -501,7 +607,7 @@ if __name__ == "__main__":
     parser.add_argument("--fallback-overlap", type=int, default=200, help="Chunk overlap if keyword search returns too little.")
 
     # You must provide either a real doc file, or a synthetic file.
-    parser.add_argument("--doc-file", default=None, help="Path to a text file to analyze.")
+    parser.add_argument("--doc-file", default=None, help="Path to a text or PDF file to analyze (.txt or .pdf).")
 
     # Synthetic doc is stored as a separate .txt file
     parser.add_argument(
@@ -535,7 +641,10 @@ if __name__ == "__main__":
 
     if args.doc_file:
         doc_path = Path(args.doc_file)
-        doc = doc_path.read_text(encoding="utf-8")
+        if not doc_path.exists():
+            print(f"ERROR: File not found: {doc_path}")
+            sys.exit(1)
+        doc = extract_text_from_file(doc_path)
     else:
         syn_path = Path(args.synthetic_file)
         if args.generate_synthetic or not syn_path.exists():
