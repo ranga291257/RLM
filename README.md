@@ -11,13 +11,16 @@ The default demo document is `input/synthetic_maintenance_log.txt`.
 
 **Directory Structure:**
 - `input/` - Place your documents here (.txt, .pdf files)
+  - `proj_prompt.txt` - Edit this file to customize analysis questions and prompts
 - `output/` - Generated analysis files (.md) are written here
 
 ---
 
 ## Prerequisites (Windows)
 
-- **Python** 3.12+ (3.14 recommended for CUDA 13.0 support)
+- **Python** 3.13 (required for CUDA 13.0 support)
+  - Python 3.13 should be installed at `C:\Users\ranga\Python313\python.exe` (or update path in `setup_cuda130_uv.ps1`)
+- **UV package manager** (installed automatically by setup script if missing)
 - **Ollama** installed and running locally
   - Start the server: `ollama serve` (or just open the Ollama app on Windows)
 - For **Ollama Cloud**: Set `OLLAMA_API_KEY` environment variable
@@ -30,6 +33,7 @@ The default demo document is `input/synthetic_maintenance_log.txt`.
 The project uses organized directories:
 
 - **`input/`** - Place your input documents here (.txt, .pdf files)
+  - **`proj_prompt.txt`** - Customize analysis questions and prompts (see [Customizing Prompts](#customizing-prompts) below)
 - **`output/`** - Generated analysis files (.md) are written here
 
 Both directories are created automatically when you run the scripts.
@@ -38,13 +42,13 @@ Both directories are created automatically when you run the scripts.
 
 ## Quick Setup
 
-From the repo root (`d:\dev\RLM`):
+From the repo root:
 
 ### 1. Create virtual environment and install dependencies
 
 ```powershell
-.\scripts\setup-rlm-env.ps1
-.\rlm_env\Scripts\Activate.ps1
+.\setup_cuda130_uv.ps1
+.\venv_uv\Scripts\Activate.ps1
 ```
 
 ### 2. Pull local Ollama models (recommended defaults)
@@ -139,7 +143,9 @@ python .\rlm_ollama_demo.py --cloud --model gpt-oss:120b-cloud --num-predict 400
 
 | Option                     | Default                           | Description                                               |
 | -------------------------- | --------------------------------- | --------------------------------------------------------- |
-| `--model`                | `gpt-oss:120b-cloud`            | Ollama model name (cloud models end with `-cloud`)      |
+| `--model`                | `llama3.2:3b`                   | Ollama model name (cloud models end with `-cloud`)      |
+| `--root-model`           | `llama3.2:3b`                   | Root model (planner/controller). Defaults to --model.  |
+| `--sub-model`            | `qwen2.5:0.5b-instruct`        | Sub-model used for recursive chunk summarization.       |
 | `--cloud`                | Auto-detect                       | Force use of Ollama Cloud                                 |
 | `--no-cloud`             | Auto-detect                       | Force use of local Ollama server                          |
 | `--api-key`              | From env var                      | Ollama Cloud API key (or set `OLLAMA_API_KEY` env var)  |
@@ -262,7 +268,7 @@ This creates `output/rlm_vs_rag_comparison_report.md` comparing:
 
 - **Purpose**: RLM-style analysis with query-driven scanning
 - **Modes**: Local and Cloud (auto-detects from model name or use `--cloud`/`--no-cloud`)
-- **Default model**: `gpt-oss:120b-cloud` (cloud model)
+- **Default model**: `llama3.2:3b` (local model)
 - **Best for**: Finding all recurring patterns across entire document
 
 ### `rag_demo.py`
@@ -298,39 +304,29 @@ python .\synthetic_data.py --out .\input\my_custom_log.txt --entries 250 --seed 
 
 After running the demos, you'll find these files in the `output/` directory:
 
+- `rlm_analysis_output.md` - RLM analysis results (always generated)
 - `rag_analysis_output.md` - RAG analysis results (always generated)
 - `rlm_vs_rag_comparison_report.md` - Side-by-side comparison (from compare script)
 
-**Note**: RLM demo writes to `output/rlm_analysis_output.md` by default. To disable file output:
+**Note**: To disable file output for RLM demo:
 ```powershell
 python .\rlm_ollama_demo.py --no-cloud --model llama3.2:3b --output-file ""
 ```
 
 ---
 
-## Optional: GPU / CUDA Setup
+## GPU / CUDA Setup
 
-If you want CUDA-enabled PyTorch installed, `.\scripts\setup-rlm-env.ps1` installs PyTorch from:
-`https://download.pytorch.org/whl/cu130` (you can override via `-TorchIndexUrl`).
+The setup script (`.\setup_cuda130_uv.ps1`) automatically installs PyTorch with CUDA 13.0 support from:
+`https://download.pytorch.org/whl/cu130`.
 
-To verify CUDA visibility:
+To verify CUDA is working:
 
 ```powershell
 python .\check_cuda.py
 ```
 
 **Note**: CUDA 13.0 requires NVIDIA driver version 600+. Check with `nvidia-smi`.
-
----
-
-## Optional: Ollama Cloud Test
-
-`test_ollama_cloud_model.py` is a **cloud-only** smoke test to verify your API key works.
-
-```powershell
-$env:OLLAMA_API_KEY="your_api_key_here"
-python .\test_ollama_cloud_model.py
-```
 
 ---
 
@@ -387,6 +383,47 @@ python .\rag_demo.py --no-cloud --doc-file "report.pdf"
 - Provide installation instructions
 
 **No OpenCV required** - OCR uses Tesseract directly (avoids numpy version conflicts).
+
+---
+
+## Customizing Prompts
+
+Both RLM and RAG demos load prompts from `input/proj_prompt.txt`. This allows you to customize:
+
+- **Main question**: The analysis question used by both demos
+- **RLM prompts**: System prompts for planning, chunk summarization, and final synthesis
+- **RAG prompts**: System prompt for answer generation
+
+### Editing the Prompt File
+
+1. Open `input/proj_prompt.txt` in any text editor
+2. Edit the main question (first non-comment line)
+3. Edit system prompts in the `[SECTION_NAME]` sections
+4. Save the file
+5. Run the demos - they will automatically use your custom prompts
+
+### Prompt File Format
+
+```text
+# Main question (first non-comment line)
+What are the recurring problems, what evidence supports them, and what actions are recommended?
+
+# RLM prompts
+[RLM_SUMMARIZE_SYSTEM]
+Your custom prompt here...
+
+[RLM_REDUCE_SYSTEM]
+Your custom prompt here...
+
+[RLM_PLAN_SYSTEM]
+Your custom prompt here...
+
+# RAG prompts
+[RAG_SYSTEM]
+Your custom prompt here...
+```
+
+**Important**: The `input/proj_prompt.txt` file is **required**. The scripts will fail with a clear error message if it doesn't exist. This ensures prompts are always domain-appropriate and not hardcoded to a specific topic.
 
 ---
 
