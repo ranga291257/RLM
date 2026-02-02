@@ -65,6 +65,97 @@ OUTPUT_DIR.mkdir(exist_ok=True)
 
 
 # -----------------------------
+# Prompt loading from file
+# -----------------------------
+def load_prompts(prompt_file: Path = None) -> Dict[str, str]:
+    """
+    Load prompts from input/proj_prompt.txt file.
+    Returns a dictionary with prompt sections.
+    """
+    if prompt_file is None:
+        prompt_file = INPUT_DIR / "proj_prompt.txt"
+    
+    prompts = {}
+    
+    if not prompt_file.exists():
+        print(f"[ERROR] Prompt file not found: {prompt_file}")
+        print(f"[ERROR] Please create {prompt_file} with your analysis question and prompts.")
+        print(f"[ERROR] See README.md for the expected format.")
+        raise FileNotFoundError(
+            f"Prompt file required: {prompt_file}\n"
+            "Create this file with your analysis question and system prompts.\n"
+            "See README.md for format details."
+        )
+    
+    try:
+        content = prompt_file.read_text(encoding="utf-8")
+        lines = content.split("\n")
+        
+        current_section = None
+        current_text = []
+        
+        for line in lines:
+            line = line.strip()
+            
+            # Skip comments and empty lines
+            if not line or line.startswith("#"):
+                continue
+            
+            # Check for section markers
+            if line.startswith("[") and line.endswith("]"):
+                # Save previous section
+                if current_section:
+                    prompts[current_section] = "\n".join(current_text).strip()
+                
+                # Start new section
+                section_name = line[1:-1].lower()
+                current_section = section_name
+                current_text = []
+            else:
+                # Check if this is the main question (before any sections)
+                if current_section is None and not any(c in line for c in "[]"):
+                    # This is the main question
+                    if "question" not in prompts:
+                        prompts["question"] = line
+                    else:
+                        prompts["question"] += " " + line
+                elif current_section:
+                    current_text.append(line)
+        
+        # Save last section
+        if current_section:
+            prompts[current_section] = "\n".join(current_text).strip()
+        
+        # Validate required sections
+        if "question" not in prompts or not prompts["question"].strip():
+            raise ValueError(
+                f"Prompt file {prompt_file} must contain a main question (first non-comment line)."
+            )
+        
+        if "rag_system" not in prompts or not prompts["rag_system"].strip():
+            raise ValueError(
+                f"Prompt file {prompt_file} must contain [RAG_SYSTEM] section."
+            )
+        
+        result = {
+            "question": prompts["question"].strip(),
+            "rag_system": prompts["rag_system"].strip(),
+        }
+        
+        print(f"[INFO] Loaded prompts from: {prompt_file}")
+        return result
+        
+    except FileNotFoundError:
+        raise  # Re-raise file not found errors
+    except Exception as e:
+        print(f"[ERROR] Failed to load prompts from {prompt_file}: {e}")
+        raise ValueError(
+            f"Invalid prompt file format in {prompt_file}. "
+            "See README.md for the expected format."
+        ) from e
+
+
+# -----------------------------
 # RAG Components
 # -----------------------------
 @dataclass
@@ -420,6 +511,7 @@ def rag_answer_question(
     num_predict: int = 3000,
     use_cloud: bool = False,
     api_key: Optional[str] = None,
+    system_prompt: Optional[str] = None,
 ) -> Tuple[str, List[Tuple[Chunk, float]]]:
     """
     RAG-style answer: retrieve relevant chunks, then generate answer.
@@ -441,12 +533,14 @@ def rag_answer_question(
 
     context = "\n\n".join(context_parts)
 
-    system = (
-        "You are analyzing maintenance log data. Answer the question based ONLY on "
-        "the provided context. Do not invent facts. When you state a claim, include "
-        "the CHUNK_ID(s) that support it. Use clear, concise formatting with bullet "
-        "points."
-    )
+    if system_prompt is None:
+        system_prompt = (
+            "You are analyzing maintenance log data. Answer the question based ONLY on "
+            "the provided context. Do not invent facts. When you state a claim, include "
+            "the CHUNK_ID(s) that support it. Use clear, concise formatting with bullet "
+            "points."
+        )
+    system = system_prompt
 
     user = (
         f"QUESTION:\n{question}\n\n"
@@ -496,13 +590,19 @@ if __name__ == "__main__":
         default=None,
         help="Ollama Cloud API key (or set OLLAMA_API_KEY env var).",
     )
+    # Try to load default question from prompt file, but don't fail if it doesn't exist yet
+    # (user might provide --question on command line)
+    try:
+        _default_prompts = load_prompts()
+        _default_question = _default_prompts.get("question", "")
+    except (FileNotFoundError, ValueError):
+        _default_question = ""
+    
     parser.add_argument(
         "--question",
-        default=(
-            "What are the recurring problems, what evidence supports them, and what "
-            "actions are recommended?"
-        ),
-        help="Question to answer.",
+        default=_default_question if _default_question else None,
+        required=not _default_question,
+        help="Question to answer (required if input/proj_prompt.txt doesn't exist, otherwise loaded from file).",
     )
     parser.add_argument(
         "--timeout",
@@ -613,6 +713,15 @@ if __name__ == "__main__":
     )
     rag.index_chunks(chunks)
 
+    # Load prompts for this run (optional - will use function default if file missing)
+    try:
+        prompts = load_prompts()
+        rag_system_prompt = prompts.get("rag_system")
+    except (FileNotFoundError, ValueError) as e:
+        print(f"[WARNING] {e}")
+        print(f"[WARNING] Continuing with function default system prompt.")
+        rag_system_prompt = None
+    
     # Query: retrieve and generate
     print("\n--- RAG-style answer ---\n")
     try:
@@ -625,6 +734,7 @@ if __name__ == "__main__":
             num_predict=args.num_predict,
             use_cloud=use_cloud,
             api_key=api_key,
+            system_prompt=rag_system_prompt,
         )
 
         # Create markdown output

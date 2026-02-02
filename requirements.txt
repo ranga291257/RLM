@@ -1,21 +1,17 @@
 # Requirements for Windows with CUDA 13.0
-# Updated for Windows compatibility and Python 3.14 support
+# Python 3.13 support with UV package manager
 # IMPORTANT: CUDA 13.0 requires NVIDIA driver version 600+ (check with: nvidia-smi)
-# If your driver only supports CUDA 12.8 or lower, you'll need to update your NVIDIA driver
-# Python 3.14 only supports PyTorch 2.9.0+ which requires CUDA 13.0
+# 
 # Installation instructions:
-# 1. Create virtual environment:
-#    python -m venv rlm_env ( it uses default python version in the system)
+# 1. Run the setup script (installs UV if needed, creates venv_uv, installs PyTorch with CUDA):
+#    .\setup_cuda130_uv.ps1
 # 2. Activate the virtual environment:
-#    rlm_env\Scripts\Activate.ps1
-# 3. Upgrade pip:
-#    python -m pip install --upgrade pip
-# 4. Install PyTorch, torchvision, torchaudio with CUDA 13.0 support (Python 3.14 compatible):
-#    pip install torch>=2.9.0 torchvision>=0.24.0 torchaudio>=2.9.0 --index-url https://download.pytorch.org/whl/cu130
-#    NOTE: If GPU is not detected, update NVIDIA driver to version 600+ for CUDA 13.0 support
-# 5. Install the rest:
-#    pip install -r requirements.txt 
-# 6. run python check_cuda.py to check if CUDA is installed and working
+#    .\venv_uv\Scripts\Activate.ps1
+# 3. Verify CUDA installation:
+#    python check_cuda.py
+#
+# Note: PyTorch (torch, torchvision, torchaudio) is installed separately via the setup script
+# with CUDA 13.0 support. This file contains only the remaining dependencies.
 numpy>=1.21.0
 scipy>=1.7.0
 matplotlib>=3.4.0
