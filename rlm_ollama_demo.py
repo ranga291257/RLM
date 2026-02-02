@@ -36,6 +36,118 @@ try:
 except ImportError:
     OLLAMA_CLIENT_AVAILABLE = False
 
+# Treat the folder containing this file as the project root.
+PROJECT_ROOT = Path(__file__).resolve().parent
+
+# Create input/ and output/ directories if they don't exist
+INPUT_DIR = PROJECT_ROOT / "input"
+OUTPUT_DIR = PROJECT_ROOT / "output"
+INPUT_DIR.mkdir(exist_ok=True)
+OUTPUT_DIR.mkdir(exist_ok=True)
+
+
+# -----------------------------
+# Prompt loading from file
+# -----------------------------
+def load_prompts(prompt_file: Path = None) -> Dict[str, str]:
+    """
+    Load prompts from input/proj_prompt.txt file.
+    Returns a dictionary with prompt sections.
+    """
+    if prompt_file is None:
+        prompt_file = INPUT_DIR / "proj_prompt.txt"
+    
+    prompts = {}
+    
+    if not prompt_file.exists():
+        print(f"[ERROR] Prompt file not found: {prompt_file}")
+        print(f"[ERROR] Please create {prompt_file} with your analysis question and prompts.")
+        print(f"[ERROR] See README.md for the expected format.")
+        raise FileNotFoundError(
+            f"Prompt file required: {prompt_file}\n"
+            "Create this file with your analysis question and system prompts.\n"
+            "See README.md for format details."
+        )
+    
+    try:
+        content = prompt_file.read_text(encoding="utf-8")
+        lines = content.split("\n")
+        
+        current_section = None
+        current_text = []
+        
+        for line in lines:
+            line = line.strip()
+            
+            # Skip comments and empty lines
+            if not line or line.startswith("#"):
+                continue
+            
+            # Check for section markers
+            if line.startswith("[") and line.endswith("]"):
+                # Save previous section
+                if current_section:
+                    prompts[current_section] = "\n".join(current_text).strip()
+                
+                # Start new section
+                section_name = line[1:-1].lower()
+                current_section = section_name
+                current_text = []
+            else:
+                # Check if this is the main question (before any sections)
+                if current_section is None and not any(c in line for c in "[]"):
+                    # This is the main question
+                    if "question" not in prompts:
+                        prompts["question"] = line
+                    else:
+                        prompts["question"] += " " + line
+                elif current_section:
+                    current_text.append(line)
+        
+        # Save last section
+        if current_section:
+            prompts[current_section] = "\n".join(current_text).strip()
+        
+        # Validate required sections
+        if "question" not in prompts or not prompts["question"].strip():
+            raise ValueError(
+                f"Prompt file {prompt_file} must contain a main question (first non-comment line)."
+            )
+        
+        # RLM sections are optional (will use function defaults if missing)
+        # But warn if they're missing
+        missing_sections = []
+        if "rlm_summarize_system" not in prompts:
+            missing_sections.append("RLM_SUMMARIZE_SYSTEM")
+        if "rlm_reduce_system" not in prompts:
+            missing_sections.append("RLM_REDUCE_SYSTEM")
+        if "rlm_plan_system" not in prompts:
+            missing_sections.append("RLM_PLAN_SYSTEM")
+        
+        if missing_sections:
+            print(f"[WARNING] Missing RLM prompt sections: {', '.join(missing_sections)}")
+            print(f"[WARNING] Using function defaults for missing sections.")
+        
+        result = {
+            "question": prompts["question"].strip(),
+            "rlm_summarize_system": prompts.get("rlm_summarize_system", "").strip() or None,
+            "rlm_reduce_system": prompts.get("rlm_reduce_system", "").strip() or None,
+            "rlm_plan_system": prompts.get("rlm_plan_system", "").strip() or None,
+            "rag_system": prompts.get("rag_system", "").strip() or None,
+        }
+        
+        print(f"[INFO] Loaded prompts from: {prompt_file}")
+        return result
+        
+    except FileNotFoundError:
+        raise  # Re-raise file not found errors
+    except Exception as e:
+        print(f"[ERROR] Failed to load prompts from {prompt_file}: {e}")
+        raise ValueError(
+            f"Invalid prompt file format in {prompt_file}. "
+            "See README.md for the expected format."
+        ) from e
+
 
 # -----------------------------
 # Ollama client (supports both local and cloud)
@@ -411,15 +523,18 @@ def summarize_chunk(
     num_predict: int,
     use_cloud: bool = False,
     api_key: Optional[str] = None,
+    system_prompt: Optional[str] = None,
 ) -> str:
     """
     Ask the LLM to extract structured facts from a chunk.
     """
-    system = (
-        "You are a careful analyst. Extract only what is supported by the provided chunk. "
-        "Return a compact bullet list of facts relevant to the question. "
-        "If something is unknown, say 'Not in chunk'."
-    )
+    if system_prompt is None:
+        system_prompt = (
+            "You are a careful analyst. Extract only what is supported by the provided chunk. "
+            "Return a compact bullet list of facts relevant to the question. "
+            "If something is unknown, say 'Not in chunk'."
+        )
+    system = system_prompt
     user = (
         f"QUESTION:\n{question}\n\n"
         f"CHUNK_ID: {chunk.chunk_id}\n"
@@ -448,17 +563,20 @@ def reduce_summaries(
     num_predict: int,
     use_cloud: bool = False,
     api_key: Optional[str] = None,
+    system_prompt: Optional[str] = None,
 ) -> str:
     """
     Combine chunk summaries into final answer with references.
     summaries: list of (chunk_id, summary_text)
     """
-    system = (
-        "You are synthesizing multiple chunk-level findings into one final answer. "
-        "Do not invent facts. When you state a claim, include supporting CHUNK_ID(s). "
-        "If evidence conflicts, call it out. "
-        "Use clear, concise formatting. Avoid overly long lines or complex markdown tables."
-    )
+    if system_prompt is None:
+        system_prompt = (
+            "You are synthesizing multiple chunk-level findings into one final answer. "
+            "Do not invent facts. When you state a claim, include supporting CHUNK_ID(s). "
+            "If evidence conflicts, call it out. "
+            "Use clear, concise formatting. Avoid overly long lines or complex markdown tables."
+        )
+    system = system_prompt
 
     joined = "\n\n".join(
         f"=== {cid} ===\n{summ}" for cid, summ in summaries
@@ -498,15 +616,18 @@ def plan_search(
     num_predict: int,
     use_cloud: bool = False,
     api_key: Optional[str] = None,
+    system_prompt: Optional[str] = None,
 ) -> Dict[str, Any]:
     """
     LLM proposes a search plan (keywords + optional regex hints).
     This is the 'RLM-style planning step'.
     """
-    system = (
-        "You propose a search plan for finding relevant passages in a large document stored externally. "
-        "Return STRICT JSON only. No commentary."
-    )
+    if system_prompt is None:
+        system_prompt = (
+            "You propose a search plan for finding relevant passages in a large document stored externally. "
+            "Return STRICT JSON only. No commentary."
+        )
+    system = system_prompt
     user = (
         f"Question: {question}\n\n"
         "Return JSON with this schema:\n"
@@ -534,10 +655,11 @@ def plan_search(
 # RLM pipeline
 # -----------------------------
 def rlm_answer_question(
-    model: str,
+    root_model: str,
     doc: str,
     question: str,
     *,
+    sub_model: Optional[str] = None,
     timeout_s: int = 600,
     num_predict: int = 512,
     window: int = 900,
@@ -546,10 +668,18 @@ def rlm_answer_question(
     fallback_overlap: int = 200,
     use_cloud: bool = False,
     api_key: Optional[str] = None,
+    prompts: Optional[Dict[str, str]] = None,
 ) -> str:
+    # Get prompts (use defaults if not provided)
+    if prompts is None:
+        prompts = load_prompts()
+
+    if sub_model is None:
+        sub_model = root_model
+    
     # 1) Plan search (LLM proposes keywords)
-    print(f"[DEBUG] Step 1: Planning search with model {model} ({'cloud' if use_cloud else 'local'})...")
-    plan = plan_search(model, question, timeout_s=timeout_s, num_predict=num_predict, use_cloud=use_cloud, api_key=api_key)
+    print(f"[DEBUG] Step 1: Planning search with root model {root_model} ({'cloud' if use_cloud else 'local'})...")
+    plan = plan_search(root_model, question, timeout_s=timeout_s, num_predict=num_predict, use_cloud=use_cloud, api_key=api_key, system_prompt=prompts.get("rlm_plan_system"))
     keywords = plan.get("keywords", [])
     if not keywords:
         keywords = ["alarm", "trip", "fault", "recommendation"]
@@ -572,7 +702,7 @@ def rlm_answer_question(
     chunk_summaries: List[Tuple[str, str]] = []
     for i, sp in enumerate(spans):
         print(f"[DEBUG] Summarizing chunk {i+1}/{len(spans)}: {sp.chunk_id}")
-        summ = summarize_chunk(model, question, sp, timeout_s=timeout_s, num_predict=num_predict, use_cloud=use_cloud, api_key=api_key)
+        summ = summarize_chunk(sub_model, question, sp, timeout_s=timeout_s, num_predict=num_predict, use_cloud=use_cloud, api_key=api_key, system_prompt=prompts.get("rlm_summarize_system"))
         chunk_summaries.append((sp.chunk_id, summ))
 
     # 4) Reduce step: stitch into final answer with evidence map
@@ -581,7 +711,7 @@ def rlm_answer_question(
         return "ERROR: No chunk summaries were generated. Check if spans were found and summarized successfully."
     # Use higher token limit for final synthesis step
     final_num_predict = max(num_predict, 3000)  # Ensure at least 3000 for final step
-    final = reduce_summaries(model, question, chunk_summaries, timeout_s=timeout_s, num_predict=final_num_predict, use_cloud=use_cloud, api_key=api_key)
+    final = reduce_summaries(root_model, question, chunk_summaries, timeout_s=timeout_s, num_predict=final_num_predict, use_cloud=use_cloud, api_key=api_key, system_prompt=prompts.get("rlm_reduce_system"))
     if not final or not final.strip():
         return "ERROR: Final reduction step returned empty answer. Check Ollama model responses."
     print(f"[DEBUG] Final answer length: {len(final)} chars")
@@ -589,21 +719,27 @@ def rlm_answer_question(
 
 
 if __name__ == "__main__":
-    # Treat the folder containing this file as the project root.
-    PROJECT_ROOT = Path(__file__).resolve().parent
-    
-    # Create input/ and output/ directories if they don't exist
-    INPUT_DIR = PROJECT_ROOT / "input"
-    OUTPUT_DIR = PROJECT_ROOT / "output"
-    INPUT_DIR.mkdir(exist_ok=True)
-    OUTPUT_DIR.mkdir(exist_ok=True)
-
     parser = argparse.ArgumentParser(description="RLM-style Ollama demo (loads a doc file).")
-    parser.add_argument("--model", default="gpt-oss:120b-cloud", help="Ollama model name (cloud models end with '-cloud').")
+    parser.add_argument("--model", default="llama3.2:latest", help="Ollama model name (cloud models end with '-cloud').")
+    parser.add_argument("--root-model", default="llama3.2:latest", help="Root model (planner/controller). Defaults to --model.")
+    parser.add_argument("--sub-model", default="qwen3:0.6b", help="Sub-model used for recursive chunk summarization. Defaults to root model.")
     parser.add_argument("--cloud", action="store_true", default=None, help="Force use of Ollama Cloud.")
     parser.add_argument("--no-cloud", dest="cloud", action="store_false", help="Force use of local Ollama server.")
     parser.add_argument("--api-key", default=None, help="Ollama Cloud API key (or set OLLAMA_API_KEY env var).")
-    parser.add_argument("--question", default="What are the recurring problems, what evidence supports them, and what actions are recommended?")
+    # Try to load default question from prompt file, but don't fail if it doesn't exist yet
+    # (user might provide --question on command line)
+    try:
+        _default_prompts = load_prompts()
+        _default_question = _default_prompts.get("question", "")
+    except (FileNotFoundError, ValueError):
+        _default_question = ""
+    
+    parser.add_argument(
+        "--question", 
+        default=_default_question if _default_question else None,
+        required=not _default_question,
+        help="Question to answer (required if input/proj_prompt.txt doesn't exist, otherwise loaded from file)"
+    )
     parser.add_argument("--timeout", type=int, default=900, help="Per-call Ollama read timeout in seconds.")
     parser.add_argument("--num-predict", type=int, default=3000, help="Max tokens to generate per call (increased for models with thinking/reasoning and final synthesis).")
     parser.add_argument("--max-spans", type=int, default=8, help="Max retrieved spans to summarize (lower = faster).")
@@ -636,6 +772,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     MODEL = args.model
+    ROOT_MODEL = args.root_model or MODEL
+    SUB_MODEL = args.sub_model or ROOT_MODEL
     QUESTION = args.question
     # Auto-detect cloud mode from model name if not explicitly set
     # args.cloud will be None if neither --cloud nor --no-cloud was used
@@ -669,12 +807,21 @@ if __name__ == "__main__":
             write_synthetic_doc(str(syn_path), cfg)
         doc = syn_path.read_text(encoding="utf-8")
 
+    # Load prompts for this run (optional - will use function defaults if file missing)
+    try:
+        prompts = load_prompts()
+    except (FileNotFoundError, ValueError) as e:
+        print(f"[WARNING] {e}")
+        print(f"[WARNING] Continuing with function default prompts.")
+        prompts = None
+    
     print("\n--- RLM-style answer (Ollama) ---\n")
     try:
         answer = rlm_answer_question(
-            MODEL,
+            ROOT_MODEL,
             doc,
             QUESTION,
+            sub_model=SUB_MODEL,
             timeout_s=args.timeout,
             num_predict=args.num_predict,
             window=args.window,
@@ -683,6 +830,7 @@ if __name__ == "__main__":
             fallback_overlap=args.fallback_overlap,
             use_cloud=USE_CLOUD,
             api_key=API_KEY,
+            prompts=prompts,
         )
         if answer:
             # Clean up and print answer with better formatting
